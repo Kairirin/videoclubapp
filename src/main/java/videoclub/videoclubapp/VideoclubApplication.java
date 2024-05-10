@@ -8,15 +8,27 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class VideoclubApplication extends Application {
-    @Override
+    /*@Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(VideoclubApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader =
+                new FXMLLoader(VideoclubApplication.class.getResource("main.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+    }*/
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader =
+                new FXMLLoader(VideoclubApplication.class.getResource("login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setTitle("CariClub");
+        //scene.getStylesheets().add(
+                //getClass().getResource("design.css").toExternalForm());
+        stage.setScene(scene);
+        //stage.setFullScreen(true);
+        stage.show();
     }
-
     public static void main(String[] args) {
         launch();
     }

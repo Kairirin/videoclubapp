@@ -4,28 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b4734f7-aa74-445a-9834-3e0c57ff43ed" name="Changes" comment="First commit">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/Inventory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/Lending.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/BluRay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/DVD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Material.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Movie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Nintendo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Playstation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/VHS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Videogame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/Worker.java" afterDir="false" />
+    <list default="true" id="0b4734f7-aa74-445a-9834-3e0c57ff43ed" name="Changes" comment="Classes created">
+      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/Navigate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/design.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/users.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/inventory.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/lending.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/members.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/VideoclubApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/VideoclubApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/VideoclubApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -49,6 +43,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
@@ -61,14 +58,23 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.VideoclubApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/irene/Desktop/ED Bloque 3/Session 3/ContactsFX_VersionEx8"
+    "last_opened_file_path": "C:/Users/irene/Desktop/ED Bloque 3/Session 3/ContactsFX_VersionEx8",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\irene\Desktop\ED Bloque 3\FinalProject_IreneVinader\videoclubApp\src\main\resources\sample" />
+      <recent name="C:\Users\irene\Desktop\ED Bloque 3\FinalProject_IreneVinader\videoclubApp\src\main\resources" />
+      <recent name="C:\Users\irene\Desktop\ED Bloque 3\FinalProject_IreneVinader\videoclubApp\src\sample" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -86,7 +92,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715192503975</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Classes created">
+      <option name="closed" value="true" />
+      <created>1715363080102</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715363080102</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,6 +116,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
+    <MESSAGE value="Classes created" />
+    <option name="LAST_COMMIT_MESSAGE" value="Classes created" />
   </component>
 </project>
