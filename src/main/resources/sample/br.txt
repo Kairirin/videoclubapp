@@ -1,0 +1,20 @@
+BR1;Interstellar;2014;Ciencia ficción;Christopher Nolan
+BR2;El renacido;2015;Aventura;Alejandro González Iñárritu
+BR3;La La Land;2016;Musical;Damien Chazelle
+BR4;Rogue One: Una historia de Star Wars;2016;Ciencia ficción;Gareth Edwards
+BR5;Coco;2017;Animación;Lee Unkrich
+BR6;Dunkerque;2017;Bélico;Christopher Nolan
+BR7;Black Panther;2018;Acción;Ryan Coogler
+BR8;Vengadores: Infinity War;2018;Acción;Anthony Russo, Joe Russo
+BR9;Bohemian Rhapsody;2018;Biografía;Bryan Singer
+BR10;Joker;2019;Crimen;Todd Phillips
+BR11;Parásitos;2019;Comedia negra;Bong Joon-ho
+BR12;1917;2019;Bélico;Sam Mendes
+BR13;El faro;2019;Terror;Robert Eggers
+BR14;Sonic, la película;2020;Aventura;Jeff Fowler
+BR15;Tenet;2020;Ciencia ficción;Christopher Nolan
+BR16;Nomadland;2020;Drama;Chloé Zhao
+BR17;Soul;2020;Animación;Pete Docter
+BR18;Mank;2020;Drama;David Fincher
+BR19;Godzilla vs. Kong;2021;Acción;Adam Wingard
+BR20;Dune;2021;Ciencia ficción;Denis Villeneuve

@@ -1,0 +1,41 @@
+VHS1;El Padrino;1972;Drama;Francis Ford Coppola
+VHS2;Star Wars: Episodio IV - Una nueva esperanza;1977;Ciencia ficción;George Lucas
+VHS3;Tiburón;1975;Suspenso;Steven Spielberg
+VHS4;Rocky;1976;Drama;John G. Avildsen
+VHS5;El Exorcista;1973;Terror;William Friedkin
+VHS6;Regreso al Futuro;1985;Ciencia ficción;Robert Zemeckis
+VHS7;Indiana Jones: En busca del arca perdida;1981;Aventura;Steven Spielberg
+VHS8;Blade Runner;1982;Ciencia ficción;Ridley Scott
+VHS9;ET: El extraterrestre;1982;Fantasía;Steven Spielberg
+VHS10;Los cazafantasmas;1984;Comedia;Ivan Reitman
+VHS11;Terminator;1984;Acción;James Cameron
+VHS12;La lista de Schindler;1993;Drama;Steven Spielberg
+VHS13;El silencio de los corderos;1991;Suspenso;Jonathan Demme
+VHS14;Forrest Gump;1994;Drama;Robert Zemeckis
+VHS15;Titanic;1997;Romance;James Cameron
+VHS16;El sexto sentido;1999;Terror;M. Night Shyamalan
+VHS17;Jurassic Park;1993;Ciencia ficción;Steven Spielberg
+VHS18;El club de la pelea;1999;Drama;David Fincher
+VHS19;El rey león;1994;Animación;Roger Allers, Rob Minkoff
+VHS20;Pulp Fiction;1994;Crimen;Quentin Tarantino
+VHS21;La naranja mecánica;1971;Ciencia ficción;Stanley Kubrick
+VHS22;Taxi Driver;1976;Drama;Martin Scorsese
+VHS23;Apocalypse Now;1979;Drama;Francis Ford Coppola
+VHS24;El resplandor;1980;Terror;Stanley Kubrick
+VHS25;Raiders of the Lost Ark;1981;Aventura;Steven Spielberg
+VHS26;Los Goonies;1985;Aventura;Richard Donner
+VHS27;Atracción Fatal;1987;Suspenso;Adrian Lyne
+VHS28;RoboCop;1987;Ciencia ficción;Paul Verhoeven
+VHS29;Cazafantasmas II;1989;Comedia;Ivan Reitman
+VHS30;El rey pescador;1991;Drama;Terry Gilliam
+VHS31;Entrevista con el vampiro;1994;Fantasía;Neil Jordan
+VHS32;Cadena perpetua;1994;Drama;Frank Darabont
+VHS33;Toy Story;1995;Animación;John Lasseter
+VHS34;Heat;1995;Acción;Michael Mann
+VHS35;Independence Day;1996;Ciencia ficción;Roland Emmerich
+VHS36;Misión: Imposible;1996;Acción;Brian De Palma
+VHS37;El paciente inglés;1996;Romance;Anthony Minghella
+VHS38;La vida es bella;1997;Comedia;Roberto Benigni
+VHS39;Salvar al soldado Ryan;1998;Bélico;Steven Spielberg
+VHS40;El show de Truman;1998;Drama;Peter Weir
+

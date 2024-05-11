@@ -15,19 +15,19 @@
                   <Font name="Dubai Light" size="26.0" />
                </font>
             </Label>
-            <Button fx:id="pressButton" layoutX="532.0" layoutY="17.0" mnemonicParsing="false" text="Logout" />
+            <Button fx:id="btnlogout" layoutX="532.0" layoutY="17.0" mnemonicParsing="false" onAction="#exitProgram" text="Logout" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="598.0">
          <children>
-            <Button fx:id="btnInv" layoutX="63.0" layoutY="89.0" mnemonicParsing="false" onAction="#pressButton" text="View inventory">
+            <Button fx:id="btnInv" layoutX="63.0" layoutY="89.0" mnemonicParsing="false" onAction="#viewInventory" text="View inventory">
                <font>
                   <Font size="21.0" />
                </font></Button>
-            <Button fx:id="btnMem" layoutX="361.0" layoutY="89.0" mnemonicParsing="false" onAction="#pressButton" text="View members">
+            <Button fx:id="btnMem" layoutX="361.0" layoutY="89.0" mnemonicParsing="false" onAction="#viewMembers" text="View members">
                <font>
                   <Font size="21.0" />
                </font></Button>
-            <Button fx:id="btnLend" layoutX="248.0" layoutY="222.0" mnemonicParsing="false" onAction="#pressButton" text="Lending">
+            <Button fx:id="btnRent" layoutX="264.0" layoutY="224.0" mnemonicParsing="false" onAction="#viewRent" text="Rent">
                <font>
                   <Font size="21.0" />
                </font></Button>

@@ -1,0 +1,47 @@
+DVD1;El Señor de los Anillos: La Comunidad del Anillo;2001;Fantasía;Peter Jackson
+DVD2;Harry Potter y la piedra filosofal;2001;Fantasía;Chris Columbus
+DVD3;Shrek;2001;Animación;Andrew Adamson, Vicky Jenson
+DVD4;Gladiator;2000;Drama;Ridley Scott
+DVD5;El Señor de los Anillos: Las dos torres;2002;Fantasía;Peter Jackson
+DVD6;Spider-Man;2002;Acción;Sam Raimi
+DVD7;El Pianista;2002;Drama;Roman Polanski
+DVD8;Harry Potter y la cámara secreta;2002;Fantasía;Chris Columbus
+DVD9;El Señor de los Anillos: El retorno del Rey;2003;Fantasía;Peter Jackson
+DVD10;Buscando a Nemo;2003;Animación;Andrew Stanton, Lee Unkrich
+DVD11;Shrek 2;2004;Animación;Andrew Adamson, Kelly Asbury, Conrad Vernon
+DVD12;Harry Potter y el prisionero de Azkaban;2004;Fantasía;Alfonso Cuarón
+DVD13;Million Dollar Baby;2004;Drama;Clint Eastwood
+DVD14;King Kong;2005;Aventura;Peter Jackson
+DVD15;Harry Potter y el cáliz de fuego;2005;Fantasía;Mike Newell
+DVD16;Batman Begins;2005;Acción;Christopher Nolan
+DVD17;Piratas del Caribe: El cofre de la muerte;2006;Aventura;Gore Verbinski
+DVD18;Casino Royale;2006;Acción;Martin Campbell
+DVD19;Ratatouille;2007;Animación;Brad Bird
+DVD20;Piratas del Caribe: En el fin del mundo;2007;Aventura;Gore Verbinski
+DVD21;Harry Potter y la Orden del Fénix;2007;Fantasía;David Yates
+DVD22;Transformers;2007;Ciencia ficción;Michael Bay
+DVD23;Wall-E;2008;Animación;Andrew Stanton
+DVD24;El caballero oscuro;2008;Acción;Christopher Nolan
+DVD25;Avatar;2009;Ciencia ficción;James Cameron
+DVD26;Up;2009;Animación;Pete Docter, Bob Peterson
+DVD27;Harry Potter y el misterio del príncipe;2009;Fantasía;David Yates
+DVD28;Inception;2010;Ciencia ficción;Christopher Nolan
+DVD29;Toy Story 3;2010;Animación;Lee Unkrich
+DVD30;Harry Potter y las Reliquias de la Muerte: Parte 1;2010;Fantasía;David Yates
+DVD31;El origen del planeta de los simios;2011;Ciencia ficción;Rupert Wyatt
+DVD32;Harry Potter y las Reliquias de la Muerte: Parte 2;2011;Fantasía;David Yates
+DVD33;Intocable;2011;Drama;Olivier Nakache, Éric Toledano
+DVD34;The Avengers;2012;Acción;Joss Whedon
+DVD35;El Hobbit: Un viaje inesperado;2012;Fantasía;Peter Jackson
+DVD36;Frozen;2013;Animación;Chris Buck, Jennifer Lee
+DVD37;Gravity;2013;Ciencia ficción;Alfonso Cuarón
+DVD38;Interstellar;2014;Ciencia ficción;Christopher Nolan
+DVD39;Guardianes de la Galaxia;2014;Ciencia ficción;James Gunn
+DVD40;El renacido;2015;Aventura;Alejandro González Iñárritu
+DVD41;Star Wars: El despertar de la fuerza;2015;Ciencia ficción;J.J. Abrams
+DVD42;Zootopia;2016;Animación;Byron Howard, Rich Moore, Jared Bush
+DVD43;La La Land;2016;Musical;Damien Chazelle
+DVD44;Rogue One: Una historia de Star Wars;2016;Ciencia ficción;Gareth Edwards
+DVD45;Coco;2017;Animación;Lee Unkrich, Adrian Molina
+DVD46;Dunkerque;2017;Bélico;Christopher Nolan
+DVD47;Black Panther;2018;Acción;Ryan Coogler

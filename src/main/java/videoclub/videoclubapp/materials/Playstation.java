@@ -5,7 +5,7 @@ package videoclub.videoclubapp.materials;
  * @version 1
  */
 public class Playstation extends Videogame {
-    public Playstation(String com, String c, String t, int y, String g) {
-        super(com, c, t, y, g);
+    public Playstation(String c, String t, int y, String g, String com) {
+        super(c, t, y, g, com);
     }
 }

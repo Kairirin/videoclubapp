@@ -1,3 +1,8 @@
+/**
+ * Controller associated to login.fxml
+ * @author irenevinaderantón
+ * @version 1
+ */
 package videoclub.videoclubapp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

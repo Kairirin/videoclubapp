@@ -1,3 +1,8 @@
+/**
+ * Main view of the program when user has successfully logued in
+ * @author irenevinaderantón
+ * @version 1
+ */
 package videoclub.videoclubapp;
 
 import javafx.event.ActionEvent;
@@ -6,7 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,7 +25,7 @@ public class MainController implements Initializable {
     @FXML
     private Button btnMem;
     @FXML
-    private Button btnLend;
+    private Button btnRent;
     @FXML
     private Button btnlogout;
     @Override
@@ -29,18 +33,19 @@ public class MainController implements Initializable {
 
     }
     @FXML
-    public void pressButton(ActionEvent actionEvent) throws IOException {
-        if(btnInv.isPressed()){
-            Navigate.goToView("inventory.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
-        }
-        else if (btnMem.isPressed()){
-            Navigate.goToView("members.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
-        }
-        else if (btnLend.isPressed()){
-            Navigate.goToView("lending.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
-        }
-        else if (btnlogout.isPressed()){
-            System.exit(0);
-        }
+    public void viewInventory(ActionEvent actionEvent) throws IOException {
+        Navigate.goToView("inventory.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
+    }
+    @FXML
+    public void viewMembers(ActionEvent actionEvent) throws IOException {
+        Navigate.goToView("members.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
+    }
+    @FXML
+    public void viewRent(ActionEvent actionEvent) throws IOException {
+        Navigate.goToView("rent.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
+    }
+    @FXML
+    public void exitProgram(ActionEvent actionEvent) throws IOException {
+        System.exit(0);
     }
 }

@@ -1,0 +1,167 @@
+BR1;Interstellar;2014;Ciencia ficción;Christopher Nolan
+BR2;El renacido;2015;Aventura;Alejandro González Iñárritu
+BR3;La La Land;2016;Musical;Damien Chazelle
+BR4;Rogue One: Una historia de Star Wars;2016;Ciencia ficción;Gareth Edwards
+BR5;Coco;2017;Animación;Lee Unkrich
+BR6;Dunkerque;2017;Bélico;Christopher Nolan
+BR7;Black Panther;2018;Acción;Ryan Coogler
+BR8;Vengadores: Infinity War;2018;Acción;Anthony Russo, Joe Russo
+BR9;Bohemian Rhapsody;2018;Biografía;Bryan Singer
+BR10;Joker;2019;Crimen;Todd Phillips
+BR11;Parásitos;2019;Comedia negra;Bong Joon-ho
+BR12;1917;2019;Bélico;Sam Mendes
+BR13;El faro;2019;Terror;Robert Eggers
+BR14;Sonic, la película;2020;Aventura;Jeff Fowler
+BR15;Tenet;2020;Ciencia ficción;Christopher Nolan
+BR16;Nomadland;2020;Drama;Chloé Zhao
+BR17;Soul;2020;Animación;Pete Docter
+BR18;Mank;2020;Drama;David Fincher
+BR19;Godzilla vs. Kong;2021;Acción;Adam Wingard
+BR20;Dune;2021;Ciencia ficción;Denis Villeneuve
+DVD1;El Señor de los Anillos: La Comunidad del Anillo;2001;Fantasía;Peter Jackson
+DVD2;Harry Potter y la piedra filosofal;2001;Fantasía;Chris Columbus
+DVD3;Shrek;2001;Animación;Andrew Adamson, Vicky Jenson
+DVD4;Gladiator;2000;Drama;Ridley Scott
+DVD5;El Señor de los Anillos: Las dos torres;2002;Fantasía;Peter Jackson
+DVD6;Spider-Man;2002;Acción;Sam Raimi
+DVD7;El Pianista;2002;Drama;Roman Polanski
+DVD8;Harry Potter y la cámara secreta;2002;Fantasía;Chris Columbus
+DVD9;El Señor de los Anillos: El retorno del Rey;2003;Fantasía;Peter Jackson
+DVD10;Buscando a Nemo;2003;Animación;Andrew Stanton, Lee Unkrich
+DVD11;Shrek 2;2004;Animación;Andrew Adamson, Kelly Asbury, Conrad Vernon
+DVD12;Harry Potter y el prisionero de Azkaban;2004;Fantasía;Alfonso Cuarón
+DVD13;Million Dollar Baby;2004;Drama;Clint Eastwood
+DVD14;King Kong;2005;Aventura;Peter Jackson
+DVD15;Harry Potter y el cáliz de fuego;2005;Fantasía;Mike Newell
+DVD16;Batman Begins;2005;Acción;Christopher Nolan
+DVD17;Piratas del Caribe: El cofre de la muerte;2006;Aventura;Gore Verbinski
+DVD18;Casino Royale;2006;Acción;Martin Campbell
+DVD19;Ratatouille;2007;Animación;Brad Bird
+DVD20;Piratas del Caribe: En el fin del mundo;2007;Aventura;Gore Verbinski
+DVD21;Harry Potter y la Orden del Fénix;2007;Fantasía;David Yates
+DVD22;Transformers;2007;Ciencia ficción;Michael Bay
+DVD23;Wall-E;2008;Animación;Andrew Stanton
+DVD24;El caballero oscuro;2008;Acción;Christopher Nolan
+DVD25;Avatar;2009;Ciencia ficción;James Cameron
+DVD26;Up;2009;Animación;Pete Docter, Bob Peterson
+DVD27;Harry Potter y el misterio del príncipe;2009;Fantasía;David Yates
+DVD28;Inception;2010;Ciencia ficción;Christopher Nolan
+DVD29;Toy Story 3;2010;Animación;Lee Unkrich
+DVD30;Harry Potter y las Reliquias de la Muerte: Parte 1;2010;Fantasía;David Yates
+DVD31;El origen del planeta de los simios;2011;Ciencia ficción;Rupert Wyatt
+DVD32;Harry Potter y las Reliquias de la Muerte: Parte 2;2011;Fantasía;David Yates
+DVD33;Intocable;2011;Drama;Olivier Nakache, Éric Toledano
+DVD34;The Avengers;2012;Acción;Joss Whedon
+DVD35;El Hobbit: Un viaje inesperado;2012;Fantasía;Peter Jackson
+DVD36;Frozen;2013;Animación;Chris Buck, Jennifer Lee
+DVD37;Gravity;2013;Ciencia ficción;Alfonso Cuarón
+DVD38;Interstellar;2014;Ciencia ficción;Christopher Nolan
+DVD39;Guardianes de la Galaxia;2014;Ciencia ficción;James Gunn
+DVD40;El renacido;2015;Aventura;Alejandro González Iñárritu
+DVD41;Star Wars: El despertar de la fuerza;2015;Ciencia ficción;J.J. Abrams
+DVD42;Zootopia;2016;Animación;Byron Howard, Rich Moore, Jared Bush
+DVD43;La La Land;2016;Musical;Damien Chazelle
+DVD44;Rogue One: Una historia de Star Wars;2016;Ciencia ficción;Gareth Edwards
+DVD45;Coco;2017;Animación;Lee Unkrich, Adrian Molina
+DVD46;Dunkerque;2017;Bélico;Christopher Nolan
+DVD47;Black Panther;2018;Acción;Ryan Coogler
+NIN1;The Legend of Zelda: Breath of the Wild;2017;Acción-aventura;Nintendo EPD
+NIN2;Super Mario Odyssey;2017;Plataforma;Nintendo EPD
+NIN3;Animal Crossing: New Horizons;2020;Simulación de vida;Nintendo EPD
+NIN4;Splatoon 2;2017;Disparos en tercera persona;Nintendo EPD
+NIN5;Super Smash Bros. Ultimate;2018;Lucha;Bandai Namco Studios, Sora Ltd.
+NIN6;Pokémon Espada y Escudo;2019;RPG;Game Freak
+NIN7;Mario Kart 8 Deluxe;2017;Carreras;Nintendo EPD
+NIN8;The Legend of Zelda: Link's Awakening;2019;Acción-aventura;Grezzo
+NIN9;Fire Emblem: Three Houses;2019;RPG táctico;Intelligent Systems, Koei Tecmo
+NIN10;Luigi's Mansion 3;2019;Aventura;Next Level Games
+NIN11;Xenoblade Chronicles 2;2017;RPG;Monolith Soft
+NIN12;Super Mario Maker 2;2019;Plataforma;Nintendo EPD
+NIN13;Octopath Traveler;2018;RPG;Acquire, Square Enix
+NIN14;The Legend of Zelda: Skyward Sword HD;2021;Acción-aventura;Nintendo EPD
+NIN15;Mario + Rabbids Kingdom Battle;2017;Estrategia por turnos;Ubisoft Milan
+NIN16;ARMS;2017;Lucha;Nintendo EPD
+NIN17;Ring Fit Adventure;2019;Aventura;Nintendo EPD
+NIN18;Pokémon Let's Go, Pikachu! y Let's Go, Eevee!;2018;RPG;Game Freak
+NIN19;Super Mario Party;2018;Fiesta;NDcube
+NIN20;Paper Mario: The Origami King;2020;RPG;Intelligent Systems
+NIN21;The Legend of Zelda: Breath of the Wild 2;2022;Acción-aventura;Nintendo EPD
+NIN22;New Pokémon Snap;2021;Fotografía;Bandai Namco Studios
+NIN23;Super Mario 3D World + Bowser's Fury;2021;Plataforma;Nintendo EPD
+NIN24;Hyrule Warriors: Age of Calamity;2020;Hack and slash;Omega Force, Nintendo EPD
+NIN25;Animal Crossing: Happy Home Designer;2015;Simulación de vida;Nintendo EPD
+NIN26;Pokémon Unite;2021;MOBA;TiMi Studios
+NIN27;Mario Golf: Super Rush;2021;Deportes;Camelot Software Planning
+NIN28;Metroid Dread;2021;Acción-aventura;MercurySteam, Nintendo EPD
+NIN29;Splatoon 3;2022;Disparos en tercera persona;Nintendo EPD
+NIN30;Advance Wars 1+2: Re-Boot Camp;2021;Estrategia por turnos;WayForward Technologies
+PS1;The Last of Us;2013;Aventura;Naughty Dog
+PS2;Grand Theft Auto V;2013;Acción-aventura;Rockstar North
+PS3;Bioshock Infinite;2013;Disparos en primera persona;Irrational Games
+PS4;Uncharted 4: El desenlace del ladrón;2016;Aventura;Naughty Dog
+PS5;Demon's Souls;2020;Acción-RPG;Bluepoint Games, Japan Studio
+PS6;God of War;2018;Acción-aventura;Santa Monica Studio
+PS7;Red Dead Redemption 2;2018;Acción-aventura;Rockstar Studios
+PS8;Horizon Zero Dawn;2017;Acción-aventura;Guerrilla Games
+PS9;Marvel's Spider-Man;2018;Acción-aventura;Insomniac Games
+PS10;The Witcher 3: Wild Hunt;2015;RPG;CD Projekt Red
+PS11;Bloodborne;2015;Acción-RPG;FromSoftware
+PS12;Final Fantasy VII Remake;2020;RPG de acción;Square Enix
+PS13;Death Stranding;2019;Acción-aventura;Kojima Productions
+PS14;Persona 5;2016;RPG;Atlus
+PS15;Dark Souls III;2016;Acción-RPG;FromSoftware
+PS16;Ghost of Tsushima;2020;Acción-aventura;Sucker Punch Productions
+PS17;NieR: Automata;2017;Acción-RPG;PlatinumGames
+PS18;Metal Gear Solid V: The Phantom Pain;2015;Acción-aventura;Kojima Productions
+PS19;Bloodborne;2015;Acción-RPG;FromSoftware
+PS20;Resident Evil Village;2021;Survival horror;Capcom
+PS21;God of War: Ragnarok;2022;Acción-aventura;Santa Monica Studio
+PS22;The Last of Us Part II;2020;Aventura;Naughty Dog
+PS23;Assassin's Creed Valhalla;2020;Acción-aventura;Ubisoft Montreal
+PS24;Sekiro: Shadows Die Twice;2019;Acción-aventura;FromSoftware
+PS25;Ghostwire: Tokyo;2022;Acción-aventura;Tango Gameworks
+PS26;Final Fantasy XVI;2021;RPG;Square Enix
+PS27;Returnal;2021;Disparos en tercera persona;Housemarque
+PS28;Marvel's Spider-Man: Miles Morales;2020;Acción-aventura;Insomniac Games
+PS29;Ratchet & Clank: Rift Apart;2021;Plataforma;Insomniac Games
+PS30;Hogwarts Legacy;2022;Acción-RPG;Portkey Games
+VHS1;El Padrino;1972;Drama;Francis Ford Coppola
+VHS2;Star Wars: Episodio IV - Una nueva esperanza;1977;Ciencia ficción;George Lucas
+VHS3;Tiburón;1975;Suspenso;Steven Spielberg
+VHS4;Rocky;1976;Drama;John G. Avildsen
+VHS5;El Exorcista;1973;Terror;William Friedkin
+VHS6;Regreso al Futuro;1985;Ciencia ficción;Robert Zemeckis
+VHS7;Indiana Jones: En busca del arca perdida;1981;Aventura;Steven Spielberg
+VHS8;Blade Runner;1982;Ciencia ficción;Ridley Scott
+VHS9;ET: El extraterrestre;1982;Fantasía;Steven Spielberg
+VHS10;Los cazafantasmas;1984;Comedia;Ivan Reitman
+VHS11;Terminator;1984;Acción;James Cameron
+VHS12;La lista de Schindler;1993;Drama;Steven Spielberg
+VHS13;El silencio de los corderos;1991;Suspenso;Jonathan Demme
+VHS14;Forrest Gump;1994;Drama;Robert Zemeckis
+VHS15;Titanic;1997;Romance;James Cameron
+VHS16;El sexto sentido;1999;Terror;M. Night Shyamalan
+VHS17;Jurassic Park;1993;Ciencia ficción;Steven Spielberg
+VHS18;El club de la pelea;1999;Drama;David Fincher
+VHS19;El rey león;1994;Animación;Roger Allers, Rob Minkoff
+VHS20;Pulp Fiction;1994;Crimen;Quentin Tarantino
+VHS21;La naranja mecánica;1971;Ciencia ficción;Stanley Kubrick
+VHS22;Taxi Driver;1976;Drama;Martin Scorsese
+VHS23;Apocalypse Now;1979;Drama;Francis Ford Coppola
+VHS24;El resplandor;1980;Terror;Stanley Kubrick
+VHS25;Raiders of the Lost Ark;1981;Aventura;Steven Spielberg
+VHS26;Los Goonies;1985;Aventura;Richard Donner
+VHS27;Atracción Fatal;1987;Suspenso;Adrian Lyne
+VHS28;RoboCop;1987;Ciencia ficción;Paul Verhoeven
+VHS29;Cazafantasmas II;1989;Comedia;Ivan Reitman
+VHS30;El rey pescador;1991;Drama;Terry Gilliam
+VHS31;Entrevista con el vampiro;1994;Fantasía;Neil Jordan
+VHS32;Cadena perpetua;1994;Drama;Frank Darabont
+VHS33;Toy Story;1995;Animación;John Lasseter
+VHS34;Heat;1995;Acción;Michael Mann
+VHS35;Independence Day;1996;Ciencia ficción;Roland Emmerich
+VHS36;Misión: Imposible;1996;Acción;Brian De Palma
+VHS37;El paciente inglés;1996;Romance;Anthony Minghella
+VHS38;La vida es bella;1997;Comedia;Roberto Benigni
+VHS39;Salvar al soldado Ryan;1998;Bélico;Steven Spielberg
+VHS40;El show de Truman;1998;Drama;Peter Weir

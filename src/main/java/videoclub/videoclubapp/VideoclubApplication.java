@@ -6,7 +6,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
+/**
+ * Class that starts the application
+ * @author irenevinaderantón
+ * @version 1
+ */
 public class VideoclubApplication extends Application {
     /*@Override
     public void start(Stage stage) throws IOException {

@@ -3,7 +3,6 @@ import videoclub.videoclubapp.materials.*;
 import videoclub.videoclubapp.users.*;
 import java.time.LocalDate;
 import java.util.HashMap;
-
 /**
  * Class of our program that stores all the information about lending
  * @author irenevinaderantón

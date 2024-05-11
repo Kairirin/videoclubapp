@@ -1,0 +1,30 @@
+PS1;The Last of Us;2013;Aventura;Naughty Dog
+PS2;Grand Theft Auto V;2013;Acción-aventura;Rockstar North
+PS3;Bioshock Infinite;2013;Disparos en primera persona;Irrational Games
+PS4;Uncharted 4: El desenlace del ladrón;2016;Aventura;Naughty Dog
+PS5;Demon's Souls;2020;Acción-RPG;Bluepoint Games, Japan Studio
+PS6;God of War;2018;Acción-aventura;Santa Monica Studio
+PS7;Red Dead Redemption 2;2018;Acción-aventura;Rockstar Studios
+PS8;Horizon Zero Dawn;2017;Acción-aventura;Guerrilla Games
+PS9;Marvel's Spider-Man;2018;Acción-aventura;Insomniac Games
+PS10;The Witcher 3: Wild Hunt;2015;RPG;CD Projekt Red
+PS11;Bloodborne;2015;Acción-RPG;FromSoftware
+PS12;Final Fantasy VII Remake;2020;RPG de acción;Square Enix
+PS13;Death Stranding;2019;Acción-aventura;Kojima Productions
+PS14;Persona 5;2016;RPG;Atlus
+PS15;Dark Souls III;2016;Acción-RPG;FromSoftware
+PS16;Ghost of Tsushima;2020;Acción-aventura;Sucker Punch Productions
+PS17;NieR: Automata;2017;Acción-RPG;PlatinumGames
+PS18;Metal Gear Solid V: The Phantom Pain;2015;Acción-aventura;Kojima Productions
+PS19;Bloodborne;2015;Acción-RPG;FromSoftware
+PS20;Resident Evil Village;2021;Survival horror;Capcom
+PS21;God of War: Ragnarok;2022;Acción-aventura;Santa Monica Studio
+PS22;The Last of Us Part II;2020;Aventura;Naughty Dog
+PS23;Assassin's Creed Valhalla;2020;Acción-aventura;Ubisoft Montreal
+PS24;Sekiro: Shadows Die Twice;2019;Acción-aventura;FromSoftware
+PS25;Ghostwire: Tokyo;2022;Acción-aventura;Tango Gameworks
+PS26;Final Fantasy XVI;2021;RPG;Square Enix
+PS27;Returnal;2021;Disparos en tercera persona;Housemarque
+PS28;Marvel's Spider-Man: Miles Morales;2020;Acción-aventura;Insomniac Games
+PS29;Ratchet & Clank: Rift Apart;2021;Plataforma;Insomniac Games
+PS30;Hogwarts Legacy;2022;Acción-RPG;Portkey Games
