@@ -13,6 +13,14 @@ public abstract class Material {
     protected int year;
     protected String genre;
     protected String extra;
+    /**
+     * Constructor with parameters
+     * @param c A String with the code of the material
+     * @param t A String with the title of the movie or videogame
+     * @param y A int with the release year
+     * @param g A String with the genre
+     * @param e a String with extra information that will be different for each subclass
+     */
     public Material(String c, String t, int y, String g, String e){
         code = c;
         title = t;

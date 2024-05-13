@@ -12,15 +12,6 @@ import java.io.IOException;
  * @version 1
  */
 public class VideoclubApplication extends Application {
-    /*@Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader =
-                new FXMLLoader(VideoclubApplication.class.getResource("main.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
-    }*/
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader =

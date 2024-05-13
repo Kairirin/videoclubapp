@@ -3,6 +3,7 @@ package videoclub.videoclubapp.materials;
  * Branch of Material dedicated to movies
  * @author irenevinaderantón
  * @version 1.1
+ * @see Material
  */
 public class Movie extends Material{
     //private String director;

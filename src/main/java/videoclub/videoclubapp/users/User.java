@@ -10,6 +10,11 @@ import java.util.Objects;
 public abstract class User {
     protected String name;
     protected String password;
+    /**
+     * Constructor with parameters
+     * @param name A String with the name of user
+     * @param password A String with the password for the user
+     */
     public User(String name, String password){
         this.name = name;
         this.password = password;

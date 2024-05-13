@@ -3,6 +3,7 @@ package videoclub.videoclubapp.materials;
  * Branch of Material dedicated to videogames
  * @author irenevinaderantón
  * @version 1.1
+ * @see Material
  */
 public class Videogame extends Material {
     //private String company;

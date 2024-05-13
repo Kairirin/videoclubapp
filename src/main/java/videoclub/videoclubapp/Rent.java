@@ -4,14 +4,14 @@ import videoclub.videoclubapp.users.*;
 import java.time.LocalDate;
 import java.util.HashMap;
 /**
- * Class of our program that stores all the information about lending
+ * Class of our program that stores all the information about renting
  * @author irenevinaderantón
  * @version 1
  */
-public class Lending {
+public class Rent {
     private Member member;
     private HashMap<Material, LocalDate> materials;
-    public Lending(Member m){
+    public Rent(Member m){
         member = m;
         materials = new HashMap<>();
     }

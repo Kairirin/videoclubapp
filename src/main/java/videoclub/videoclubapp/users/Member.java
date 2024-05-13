@@ -9,6 +9,13 @@ public class Member {
     private String name;
     private String email;
     private int phoneNumber;
+    /**
+     * Constructor with parameters
+     * @param id A String with the ID associated to a member
+     * @param name A String with the name of that person
+     * @param email A String with the email
+     * @param phoneNumber A int with the phone number
+     */
     public Member(String id, String name, String email,int phoneNumber){
         this.id = id;
         this.name = name;
