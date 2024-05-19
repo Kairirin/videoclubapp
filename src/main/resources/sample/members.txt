@@ -1,0 +1,13 @@
+0001;Rosa Estomba;rosam@gmail.com;653214578
+0002;Ilyana Paredes;ilyana@gmail.com;658947574
+0003;María Sánchez;marsa@gmail.com;674851245
+0004;Ylenia Fernández;ylan@gmail.com;784526395
+0005;Nuria Martínez;nurma@gmail.com;745859632
+0006;Adriana Lloret;adri@gmail.com;658412574
+0007;Óscar García;peticli@gmail.com;684523241
+0008;Isaac Barberá;master@gmail.com;698541274
+0009;Alexandra Martínez;alex@gmail.com;632541278
+0010;Aida García;taraida@gmail.com;686954147
+0011;Eduardo Ivorra;eduardo@gmail.com;685412474
+0012;Pablo Camacho;pablo@gmail.com;645125423
+0013;Jose Quesada;giusseppe@gmail.com;789456123

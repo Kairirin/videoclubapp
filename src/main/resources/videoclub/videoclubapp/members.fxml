@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -10,15 +11,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="invPane" dividerPositions="0.0829145728643216" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="videoclub.videoclubapp.MembersController">
+<SplitPane fx:id="invPane" dividerPositions="0.05351170568561873" maxHeight="600" maxWidth="900" minHeight="600" minWidth="900" orientation="VERTICAL" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="videoclub.videoclubapp.MembersController">
     <items>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-            <children>
-                <Button fx:id="btnAdd" layoutX="0" layoutY="2.0" mnemonicParsing="false" onAction="#addNewMember" text="Add member" />
-                <Button fx:id="btnSearch" layoutX="90.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchMember" text="Search" />
-                <Button fx:id="btnReset" layoutX="299.0" layoutY="2.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
-                <MenuBar fx:id="principalMenuBar" layoutX="535.0" prefHeight="30.0" prefWidth="63.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+         <children>
+                <MenuBar fx:id="principalMenuBar" prefHeight="30.0" prefWidth="898.0">
                     <menus>
                         <Menu fx:id="principalMenu" mnemonicParsing="false" text="Menu">
                             <items>
@@ -33,18 +32,56 @@
                         <Insets top="2.0" />
                     </padding>
                 </MenuBar>
-                <TextField fx:id="txtSearch" layoutX="146.0" layoutY="2.0" />
-            </children></AnchorPane>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-            <children>
-                <TableView fx:id="tableMem" prefHeight="368.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <columns>
-                        <TableColumn fx:id="colId" prefWidth="71.0" text="Id" />
-                        <TableColumn fx:id="colName" prefWidth="203.0" text="Name" />
-                        <TableColumn fx:id="colEmail" prefWidth="72.0" text="Email" />
-                        <TableColumn fx:id="colPhoneNumber" prefWidth="127.0" text="Phone number" />
-                    </columns>
-                </TableView>
-            </children></AnchorPane>
+         </children></AnchorPane>
+      <SplitPane dividerPositions="0.7123745819397993" prefHeight="160.0" prefWidth="200.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                      <TableView fx:id="tableMem" prefHeight="196.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-20.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                              <TableColumn fx:id="colId" prefWidth="71.0" text="Id" />
+                              <TableColumn fx:id="colName" prefWidth="203.0" text="Name" />
+                              <TableColumn fx:id="colEmail" prefWidth="198.0" text="Email" />
+                              <TableColumn fx:id="colPhoneNumber" prefWidth="166.0" text="Phone number" />
+                          </columns>
+                      </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="196.0" prefWidth="160.0">
+               <children>
+                      <TextField fx:id="txtSearch" layoutX="53.0" layoutY="58.0" promptText="id, name, email or phone" />
+                      <Button fx:id="btnSearch" layoutX="53.0" layoutY="102.0" mnemonicParsing="false" onAction="#searchMember" text="Search" />
+                      <Button fx:id="btnReset" layoutX="157.0" layoutY="102.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+                  <Label fx:id="lblId" layoutX="55.0" layoutY="189.0" text="Id">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtId" layoutX="53.0" layoutY="223.0" />
+                  <Label fx:id="lblName" layoutX="54.0" layoutY="262.0" text="Name">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPhone" layoutX="55.0" layoutY="419.0" />
+                  <Label fx:id="lblEmail" layoutX="55.0" layoutY="327.0" text="Email">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtEmail" layoutX="54.0" layoutY="356.0" />
+                  <Label fx:id="lblPhone" layoutX="55.0" layoutY="392.0" text="Phone number">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtName" layoutX="55.0" layoutY="292.0" />
+                      <Button fx:id="btnAdd" layoutX="86.0" layoutY="467.0" mnemonicParsing="false" onAction="#addNewMember" text="Add member" />
+                  <Button fx:id="btnApply" layoutX="55.0" layoutY="467.0" mnemonicParsing="false" onAction="#modifyMember" text="Apply" visible="false" />
+                  <Button fx:id="btnRemove" layoutX="143.0" layoutY="467.0" mnemonicParsing="false" onAction="#removeMember" text="Remove" visible="false" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
     </items>
 </SplitPane>

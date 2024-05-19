@@ -1,10 +1,13 @@
 package videoclub.videoclubapp;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import videoclub.videoclubapp.management.Inventory;
+import videoclub.videoclubapp.materials.Material;
 
 import java.io.IOException;
 /**
@@ -27,9 +30,8 @@ public class Navigate {
         secondaryStage.setScene(viewScene);
         secondaryStage.initModality(Modality.WINDOW_MODAL);
         secondaryStage.initOwner(newStage);
-        //secondaryStage.setOnCloseRequest(e -> ); -> Por terminar. Retomar cuando haga el método Add
-
-
+        secondaryStage.setOnCloseRequest(e -> e.getEventType());
+        secondaryStage.showAndWait();
         //Navigate.goToView("main.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());//Falta pasar el nombre de usuario como parámetro para las cosas que hacen diferente
     }
 }

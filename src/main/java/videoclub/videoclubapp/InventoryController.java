@@ -8,10 +8,11 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import videoclub.videoclubapp.management.Inventory;
 import videoclub.videoclubapp.materials.*;
-import videoclub.videoclubapp.users.*;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -24,11 +25,11 @@ import java.util.ResourceBundle;
  * @author irenevinaderantón
  * @version 1.1
  */
-public class Inventory implements Initializable {
+public class InventoryController implements Initializable {
     @FXML
     private TextField txtSearch;
     @FXML
-    private Menu btnAdd;
+    private Button btnAdd;
     @FXML
     private Menu btnFilter;
     @FXML
@@ -65,10 +66,12 @@ public class Inventory implements Initializable {
     private TableColumn<Material, String> colExtra;
     @FXML
     private Button btnReset;
-    private ObservableList<Material> inventory;
+    private static ObservableList<Material> inventory;
+    private Inventory materials;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        inventory = FXCollections.observableArrayList(readFile());
+        materials = new Inventory();
+        inventory = FXCollections.observableArrayList(materials.getInventory());
         colCode.setCellValueFactory(new PropertyValueFactory<>("code"));
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colYear.setCellValueFactory(new PropertyValueFactory<>("year"));
@@ -77,34 +80,17 @@ public class Inventory implements Initializable {
 
         tableInv.setItems(inventory);
     }
-    private static List<Material> readFile(){
-        List<Material> materials = new ArrayList<>();
-        try{
-            List<String> lines = Files.readAllLines(Paths.get("src/main/resources/sample/materials.txt"));
-            for(String l: lines){
-                if (l.split(";")[0].contains("BR"))
-                    materials.add(new BluRay(l.split(";")[0],l.split(";")[1],Integer.parseInt(l.split(";")[2]), l.split(";")[3], l.split(";")[4]));
-                else if (l.split(";")[0].contains("DVD"))
-                    materials.add(new DVD(l.split(";")[0],l.split(";")[1],Integer.parseInt(l.split(";")[2]), l.split(";")[3], l.split(";")[4]));
-                else if (l.split(";")[0].contains("VHS"))
-                    materials.add(new VHS(l.split(";")[0],l.split(";")[1],Integer.parseInt(l.split(";")[2]), l.split(";")[3], l.split(";")[4]));
-                else if (l.split(";")[0].contains("NIN"))
-                    materials.add(new Nintendo(l.split(";")[0],l.split(";")[1],Integer.parseInt(l.split(";")[2]), l.split(";")[3], l.split(";")[4]));
-                else if (l.split(";")[0].contains("PS"))
-                    materials.add(new Playstation(l.split(";")[0],l.split(";")[1],Integer.parseInt(l.split(";")[2]), l.split(";")[3], l.split(";")[4]));
-            }
-        } catch (IOException e) {
-            return new ArrayList<>();
-        }
+    public Inventory getMaterials(){
         return materials;
     }
-    public void addMaterial(ActionEvent actionEvent){
+    @FXML
+    private void addMaterial(ActionEvent actionEvent) throws IOException {
         //Método que añade nuevo material
-
+        Navigate.goToView("add_ModalDialog.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
     @FXML
     public void searchMaterial(ActionEvent actionEvent){
-        List<Material> auxiliarList = readFile();
+        List<Material> auxiliarList = materials.getInventory();
         List<Material> search = new ArrayList<>();
 
         if(!txtSearch.getText().isEmpty()){
@@ -118,6 +104,7 @@ public class Inventory implements Initializable {
         ObservableList<Material> searched = FXCollections.observableArrayList(search);
         tableInv.setItems(searched);
     }
+
     @FXML
     public void reset(ActionEvent actionEvent) throws IOException {
         Navigate.goToView("inventory.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());

@@ -11,13 +11,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane fx:id="invPane" dividerPositions="0.0829145728643216" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="videoclub.videoclubapp.Inventory">
+<SplitPane fx:id="invPane" dividerPositions="0.0829145728643216" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="videoclub.videoclubapp.InventoryController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
             <MenuBar fx:id="invMenu" prefHeight="30.0" prefWidth="532.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="0.0">
               <menus>
-                <Menu fx:id="btnAdd" mnemonicParsing="false" onAction="#addMaterial" text="Add new" />
                 <Menu fx:id="btnFilter" mnemonicParsing="false" text="Filter by type">
                      <items>
                         <Menu fx:id="menuMV" mnemonicParsing="false" text="Movies">
@@ -42,6 +41,7 @@
             </MenuBar>
             <Button fx:id="btnSearch" layoutX="305.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchMaterial" text="Search" />
             <Button fx:id="btnReset" layoutX="365.0" layoutY="2.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+            <Button fx:id="btnAdd" layoutX="80.0" layoutY="2.0" mnemonicParsing="false" onAction="#addMaterial" text="Add new" />
             <MenuBar fx:id="principalMenuBar" layoutX="535.0" prefHeight="30.0" prefWidth="63.0">
               <menus>
                   <Menu fx:id="principalMenu" mnemonicParsing="false" text="Menu">

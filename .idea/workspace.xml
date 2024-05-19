@@ -4,24 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b4734f7-aa74-445a-9834-3e0c57ff43ed" name="Changes" comment="First prototype">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0b4734f7-aa74-445a-9834-3e0c57ff43ed" name="Changes" comment="First prototype (version 2)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/management/Inventory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/members.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/Lending.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/Rent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/VideoclubApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/VideoclubApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/BluRay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/BluRay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/DVD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/DVD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Material.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Nintendo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Nintendo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Playstation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Playstation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/VHS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/VHS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Videogame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/materials/Videogame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/AddController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/InventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/MembersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/MembersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/Navigate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/Navigate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/videoclub/videoclubapp/users/Worker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/rent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/rent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/add_ModalDialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/add_ModalDialog.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/inventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/inventory.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/members.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/videoclub/videoclubapp/members.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +64,7 @@
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/irene/Desktop/ED Bloque 3/FinalProject_IreneVinader/videoclubApp/src/main/java/videoclub/videoclubapp&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/irene/Desktop/ED Bloque 3/Session 3/ContactsFX_VersionEx8&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -127,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715429866236</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="First prototype (version 2)">
+      <option name="closed" value="true" />
+      <created>1715596644742</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715596644742</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,6 +149,7 @@
     <MESSAGE value="Classes created" />
     <MESSAGE value="Login and creation of fxml" />
     <MESSAGE value="First prototype" />
-    <option name="LAST_COMMIT_MESSAGE" value="First prototype" />
+    <MESSAGE value="First prototype (version 2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="First prototype (version 2)" />
   </component>
 </project>
