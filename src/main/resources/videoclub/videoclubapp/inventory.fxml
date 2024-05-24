@@ -5,31 +5,47 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane fx:id="invPane" dividerPositions="0.0829145728643216" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="videoclub.videoclubapp.InventoryController">
+<SplitPane fx:id="invPane" dividerPositions="0.05518394648829431" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="videoclub.videoclubapp.InventoryController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
-            <MenuBar fx:id="invMenu" prefHeight="30.0" prefWidth="532.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="0.0">
+            <MenuBar fx:id="invMenu" prefHeight="47.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
               <menus>
                 <Menu fx:id="btnFilter" mnemonicParsing="false" text="Filter by type">
                      <items>
                         <Menu fx:id="menuMV" mnemonicParsing="false" text="Movies">
                           <items>
-                            <MenuItem fx:id="btnDVD" mnemonicParsing="false" text="DVD" />
-                              <MenuItem fx:id="btnBR" mnemonicParsing="false" text="BluRay" />
-                              <MenuItem fx:id="btnVHS" mnemonicParsing="false" text="VHS" />
+                            <MenuItem fx:id="btnDVD" mnemonicParsing="false" onAction="#filterMaterial">
+                                 <graphic>
+                                    <RadioButton fx:id="filterDVD" mnemonicParsing="false" text="DVD" />
+                                 </graphic></MenuItem>
+                              <MenuItem fx:id="btnBR" mnemonicParsing="false" onAction="#filterMaterial">
+                                 <graphic>
+                                    <RadioButton fx:id="filterBR" mnemonicParsing="false" text="BluRay" />
+                                 </graphic></MenuItem>
+                              <MenuItem fx:id="btnVHS" mnemonicParsing="false" onAction="#filterMaterial">
+                                 <graphic>
+                                    <RadioButton fx:id="filterVHS" mnemonicParsing="false" text="VHS" />
+                                 </graphic></MenuItem>
                           </items>
                         </Menu>
                         <Menu fx:id="menuVG" mnemonicParsing="false" text="Videogames">
                           <items>
-                            <MenuItem fx:id="btnPS" mnemonicParsing="false" text="Playstation" />
-                              <MenuItem fx:id="btnNIN" mnemonicParsing="false" text="Nintendo" />
+                            <MenuItem fx:id="btnPS" mnemonicParsing="false" onAction="#filterMaterial">
+                                 <graphic>
+                                    <RadioButton fx:id="filterPS" mnemonicParsing="false" text="PlayStation" />
+                                 </graphic></MenuItem>
+                              <MenuItem fx:id="btnNIN" mnemonicParsing="false" onAction="#filterMaterial">
+                                 <graphic>
+                                    <RadioButton fx:id="filterNIN" mnemonicParsing="false" text="Nintendo" />
+                                 </graphic></MenuItem>
                           </items>
                         </Menu>
                      </items>
@@ -39,10 +55,11 @@
                   <Insets top="2.0" />
                </padding>
             </MenuBar>
-            <Button fx:id="btnSearch" layoutX="305.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchMaterial" text="Search" />
-            <Button fx:id="btnReset" layoutX="365.0" layoutY="2.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+            <Button fx:id="btnSearch" layoutX="305.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchMaterial" text="BluRay" />
+            <Button fx:id="btnReset" layoutX="418.0" layoutY="2.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
             <Button fx:id="btnAdd" layoutX="80.0" layoutY="2.0" mnemonicParsing="false" onAction="#addMaterial" text="Add new" />
-            <MenuBar fx:id="principalMenuBar" layoutX="535.0" prefHeight="30.0" prefWidth="63.0">
+            <Button fx:id="btnModify" layoutX="360.0" layoutY="2.0" mnemonicParsing="false" onAction="#modifyMaterial" text="Modify" />
+            <MenuBar fx:id="principalMenuBar" layoutX="838.0" prefHeight="30.0" prefWidth="63.0">
               <menus>
                   <Menu fx:id="principalMenu" mnemonicParsing="false" text="Menu">
                     <items>
@@ -64,10 +81,10 @@
             <TableView fx:id="tableInv" prefHeight="368.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columns>
                 <TableColumn fx:id="colCode" prefWidth="71.0" text="Code" />
-                <TableColumn fx:id="colTitle" prefWidth="203.0" text="Title" />
-                  <TableColumn fx:id="colYear" prefWidth="72.0" text="Year" />
-                  <TableColumn fx:id="colGenre" prefWidth="127.0" text="Genre" />
-                  <TableColumn fx:id="colExtra" prefWidth="124.0" text="Extra " />
+                <TableColumn fx:id="colTitle" prefWidth="181.0" text="Title" />
+                  <TableColumn fx:id="colYear" prefWidth="147.0" text="Year" />
+                  <TableColumn fx:id="colGenre" prefWidth="135.0" text="Genre" />
+                  <TableColumn fx:id="colExtra" prefWidth="100.0" text="Extra " />
               </columns>
             </TableView>
          </children></AnchorPane>

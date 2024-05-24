@@ -1,4 +1,7 @@
 package videoclub.videoclubapp.users;
+
+import java.util.Objects;
+
 /**
  * Class with all the data of people stored
  * @author irenevinaderantón
@@ -21,6 +24,14 @@ public class Member {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
+    }
+
+    /**
+     * Constructor for use equals
+     * @param id A String with the ID associated to a member
+     */
+    public Member(String id){
+        this.id = id;
     }
     /**
      * Returns member's Id
@@ -77,5 +88,18 @@ public class Member {
      */
     public void setPhoneNumber(int phoneNumber){
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Member member = (Member) o;
+        return Objects.equals(id, member.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

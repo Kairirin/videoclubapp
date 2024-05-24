@@ -6,6 +6,7 @@ package videoclub.videoclubapp.materials;
  * @see Movie
  */
 public class DVD extends Movie{
+    public DVD(String code){super(code);}
     public DVD(String c, String t, int y, String g, String d){
         super(c, t, y, g, d);
     }

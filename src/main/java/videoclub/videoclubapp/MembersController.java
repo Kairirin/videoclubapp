@@ -117,7 +117,7 @@ public class MembersController implements Initializable {
      * Method that read the text file where is all the data about members
      */
     private List<Member> readFile(){
-        List<Member> materials = new ArrayList<>();
+        List<Member> members = new ArrayList<>();
         try{
             List<String> lines = Files.readAllLines(Paths.get("src/main/resources/sample/members.txt"));
             return lines.stream()
@@ -234,5 +234,8 @@ public class MembersController implements Initializable {
     @FXML
     public void exitProgram(ActionEvent actionEvent) throws IOException {
         System.exit(0);
+    }
+    public List<Member> getMemberList(){
+        return listOfMembers;
     }
 }

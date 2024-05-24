@@ -28,6 +28,9 @@ public abstract class Material {
         genre = g;
         extra = e;
     }
+    public Material(String code){
+        this.code = code;
+    }
     public String getCode(){
         return code;
     }
@@ -63,4 +66,16 @@ public abstract class Material {
         return code+';'+title+';'+year+';'+genre+';'+extra;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Material material = (Material) o;
+        return Objects.equals(code, material.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code);
+    }
 }

@@ -7,6 +7,7 @@ package videoclub.videoclubapp.materials;
  */
 public class Movie extends Material{
     //private String director;
+    public Movie(String code){super(code);}
     public Movie(String c, String t, int y, String g, String director){
         super(c,t,y,g, director);
         //this.director = director;

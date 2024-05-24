@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="videoclub.videoclubapp.Rent"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<SplitPane fx:id="rentPane" dividerPositions="0.05351170568561873" maxHeight="600" maxWidth="900" minHeight="600" minWidth="900" orientation="VERTICAL" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="videoclub.videoclubapp.RentController">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+            <children>
+                <MenuBar fx:id="principalMenuBar" prefHeight="30.0" prefWidth="898.0">
+                    <menus>
+                        <Menu fx:id="principalMenu" mnemonicParsing="false" text="Menu">
+                            <items>
+                                <MenuItem fx:id="btnMain" mnemonicParsing="false" onAction="#viewMain" text="Principal" />
+                                <MenuItem fx:id="btnInventory" mnemonicParsing="false" onAction="#viewInventory" text="Inventory" />
+                                <MenuItem fx:id="btnMembers" mnemonicParsing="false" onAction="#viewMembers" text="Rent" />
+                                <MenuItem fx:id="btnLogout" mnemonicParsing="false" onAction="#exitProgram" text="Logout" />
+                            </items>
+                        </Menu>
+                    </menus>
+                    <padding>
+                        <Insets top="2.0" />
+                    </padding>
+                </MenuBar>
+            </children></AnchorPane>
+        <SplitPane dividerPositions="0.4131403118040089" prefHeight="160.0" prefWidth="200.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="563.0" prefWidth="601.0">
+                    <children>
+                        <ListView fx:id="rents" prefHeight="563.0" prefWidth="371.0" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="196.0" prefWidth="160.0">
+                    <children>
+                        <TextField fx:id="txtSearch" layoutX="173.0" layoutY="59.0" promptText="id, name, email or phone" />
+                        <Button fx:id="btnSearch" layoutX="173.0" layoutY="103.0" mnemonicParsing="false" onAction="#showRent" text="Search" />
+                        <Button fx:id="btnReset" layoutX="277.0" layoutY="103.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+                        <Label fx:id="lblId" layoutX="83.0" layoutY="161.0" text="Member's Id">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtId" editable="false" layoutX="81.0" layoutY="195.0" />
+                        <Label fx:id="lblProducts" layoutX="83.0" layoutY="238.0" text="Products">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="btnAdd" layoutX="447.0" layoutY="14.0" mnemonicParsing="false" onAction="#addRent" text="Add new" />
+                        <Button fx:id="btnApply" layoutX="81.0" layoutY="493.0" mnemonicParsing="false" onAction="#extendDate" text="Apply" />
+                        <Button fx:id="btnRemove" layoutX="156.0" layoutY="493.0" mnemonicParsing="false" onAction="#removeRent" text="Remove" />
+                  <DatePicker fx:id="dateRent" layoutX="279.0" layoutY="195.0" prefHeight="25.0" prefWidth="161.0" />
+                  <ListView fx:id="listProds" layoutX="80.0" layoutY="268.0" prefHeight="200.0" prefWidth="360.0" />
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </items>
+</SplitPane>

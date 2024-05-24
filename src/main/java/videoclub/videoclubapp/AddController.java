@@ -1,5 +1,7 @@
 package videoclub.videoclubapp;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,7 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import videoclub.videoclubapp.materials.*;
+import videoclub.videoclubapp.users.Member;
 
 import java.io.IOException;
 import java.net.URL;
@@ -65,8 +70,8 @@ public class AddController implements Initializable {
         List<Material> aux = new ArrayList<>();
         int nextNumber;
 
-        switch (cboxTipos.getSelectionModel().getSelectedItem()){
-            case "BluRay":
+        switch (cboxTipos.getSelectionModel().getSelectedIndex()){
+            case 0:
                 for(Material m: materials){
                     if (m instanceof BluRay)
                         aux.add(m);
@@ -75,25 +80,25 @@ public class AddController implements Initializable {
                 txtCodigo.setText("BR" + nextNumber);
                 txtCodigo.setEditable(false);
                 break;
-            case "DVD":
+            case 1:
                 for(Material m: materials){
                     if (m instanceof DVD)
                         aux.add(m);
                 }
-                nextNumber = (Integer.parseInt(aux.get(aux.size() - 1).getCode().substring(2))) + 1;
+                nextNumber = (Integer.parseInt(aux.get(aux.size() - 1).getCode().substring(3))) + 1;
                 txtCodigo.setText("DVD" + nextNumber);
                 txtCodigo.setEditable(false);
                 break;
-            case "VHS":
+            case 2:
                 for(Material m: materials){
                     if (m instanceof VHS)
                         aux.add(m);
                 }
-                nextNumber = (Integer.parseInt(aux.get(aux.size() - 1).getCode().substring(2))) + 1;
+                nextNumber = (Integer.parseInt(aux.get(aux.size() - 1).getCode().substring(3))) + 1;
                 txtCodigo.setText("VHS" + nextNumber);
                 txtCodigo.setEditable(false);
                 break;
-            case "PlayStation":
+            case 3:
                 for(Material m: materials){
                     if (m instanceof Playstation)
                         aux.add(m);
@@ -102,12 +107,12 @@ public class AddController implements Initializable {
                 txtCodigo.setText("PS" + nextNumber);
                 txtCodigo.setEditable(false);
                 break;
-            case "Nintendo":
+            case 4:
                 for(Material m: materials){
                     if (m instanceof Nintendo)
                         aux.add(m);
                 }
-                nextNumber = (Integer.parseInt(aux.get(aux.size() - 1).getCode().substring(2))) + 1;
+                nextNumber = (Integer.parseInt(aux.get(aux.size() - 1).getCode().substring(3))) + 1;
                 txtCodigo.setText("NIN" + nextNumber);
                 txtCodigo.setEditable(false);
                 break;
@@ -117,21 +122,22 @@ public class AddController implements Initializable {
     public void addMaterial(ActionEvent actionEvent) {
         Material mat = null;
         setCategory();
+
         if (!txtTitulo.getText().isEmpty() && !txtAnyo.getText().isEmpty() && !txtGenero.getText().isEmpty() && !txtOtros.getText().isEmpty()) {
-            switch (cboxTipos.getSelectionModel().getSelectedItem()){
-                case "BluRay":
+            switch (cboxTipos.getSelectionModel().getSelectedIndex()){
+                case 0:
                     mat = new BluRay(txtCodigo.getText(), txtTitulo.getText(), Integer.parseInt(txtAnyo.getText()), txtGenero.getText(),txtOtros.getText());
                     break;
-                case "DVD":
+                case 1:
                     mat = new DVD(txtCodigo.getText(), txtTitulo.getText(), Integer.parseInt(txtAnyo.getText()), txtGenero.getText(),txtOtros.getText());
                     break;
-                case "VHS":
+                case 2:
                     mat = new VHS(txtCodigo.getText(), txtTitulo.getText(), Integer.parseInt(txtAnyo.getText()), txtGenero.getText(),txtOtros.getText());
                     break;
-                case "PlayStation":
+                case 3:
                     mat = new Playstation(txtCodigo.getText(), txtTitulo.getText(), Integer.parseInt(txtAnyo.getText()), txtGenero.getText(),txtOtros.getText());
                     break;
-                case "Nintendo":
+                case 4:
                     mat = new Nintendo(txtCodigo.getText(), txtTitulo.getText(), Integer.parseInt(txtAnyo.getText()), txtGenero.getText(),txtOtros.getText());
                     break;
             }
@@ -141,6 +147,7 @@ public class AddController implements Initializable {
             dialog.setTitle("Success!");
             dialog.setHeaderText("Inventory actualized");
             dialog.showAndWait();
+
         }
         else{
             Alert dialog = new Alert(Alert.AlertType.ERROR);
