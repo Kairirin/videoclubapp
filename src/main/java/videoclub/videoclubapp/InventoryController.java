@@ -36,6 +36,8 @@ public class InventoryController implements Initializable {
     @FXML
     private Button btnModify;
     @FXML
+    private Button btnRemove;
+    @FXML
     private Menu btnFilter;
     @FXML
     private MenuItem btnDVD;
@@ -185,8 +187,17 @@ public class InventoryController implements Initializable {
     public void modifyMaterial(ActionEvent actionEvent){
         //Implementar método
     }
-    public void removeMaterial(){
-        //Método que borra el material
+    @FXML
+    public void removeMaterial(ActionEvent actionEvent){
+        int position = tableInv.getSelectionModel().getSelectedIndex();
+        if (position >= 0) {
+            materials.removeMaterial(inventory.get(position));
+
+            Alert dialog = new Alert(Alert.AlertType.CONFIRMATION); //Comprobar bien
+            dialog.setTitle("Success!");
+            dialog.setHeaderText("Inventory actualized");
+            dialog.showAndWait();
+        }
     }
     @FXML
     public void viewMain(ActionEvent actionEvent) throws IOException {

@@ -55,8 +55,9 @@
                   <Insets top="2.0" />
                </padding>
             </MenuBar>
-            <Button fx:id="btnSearch" layoutX="305.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchMaterial" text="BluRay" />
-            <Button fx:id="btnReset" layoutX="418.0" layoutY="2.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+            <Button fx:id="btnSearch" layoutX="305.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchMaterial" text="Search" />
+            <Button fx:id="btnRemove" layoutX="418.0" layoutY="2.0" mnemonicParsing="false" onAction="#removeMaterial" text="Remove" />
+            <Button fx:id="btnReset" layoutX="480.0" layoutY="2.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
             <Button fx:id="btnAdd" layoutX="80.0" layoutY="2.0" mnemonicParsing="false" onAction="#addMaterial" text="Add new" />
             <Button fx:id="btnModify" layoutX="360.0" layoutY="2.0" mnemonicParsing="false" onAction="#modifyMaterial" text="Modify" />
             <MenuBar fx:id="principalMenuBar" layoutX="838.0" prefHeight="30.0" prefWidth="63.0">

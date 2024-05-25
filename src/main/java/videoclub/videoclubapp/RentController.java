@@ -2,6 +2,8 @@ package videoclub.videoclubapp;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.*;
+
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -12,12 +14,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import videoclub.videoclubapp.management.Rent;
 import videoclub.videoclubapp.materials.*;
 import videoclub.videoclubapp.users.Member;
-import java.io.IOException;
+
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -32,6 +36,8 @@ public class RentController implements Initializable {
     private Label lblId;
     @FXML
     private TextField txtId;
+    @FXML
+    private TextField txtData;
     @FXML
     private Label lblProducts;
     @FXML
@@ -55,13 +61,16 @@ public class RentController implements Initializable {
     @FXML
     private MenuItem btnLogout;
     @FXML
-    private ListView rents;
+    private ListView<Rent> rents;
     @FXML
-    private ListView listProds;
+    private ListView<Material> listProds;
+    private ObservableList<Member> memberList;
     private ObservableList<Rent> rentList;
     private ObservableList<Material> listOfProducts;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        memberList = FXCollections.observableList(getControllerMem().getMemberList());
         rentList = FXCollections.observableList(readRents());
         rents.setItems(rentList);
 
@@ -72,7 +81,7 @@ public class RentController implements Initializable {
                         if (newValue != null) {
                             listOfProducts = FXCollections.observableList(newValue.getProducts());
                             txtId.setText(newValue.getMember().getId());
-                            dateRent.setValue(newValue.getReturnData());
+                            txtData.setText(formatter.format(newValue.getReturnData()));
                             listProds.setItems(listOfProducts);
                         }
                     }
@@ -80,15 +89,18 @@ public class RentController implements Initializable {
         );
     }
     private List<Rent> readRents(){
-        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         List<Rent> rents = new ArrayList<>();
-        List<Member> mems = getControllerMem().getMemberList();
         List<Material> materials = getControllerInv().getMaterials().getInventory();
-        int memberIndex, matIndex, rentIndex;
-        try {
-            List<String> lines = Files.readAllLines(Paths.get("src/main/resources/sample/rents.txt"));
-            for(int i = 0; i < lines.size(); i++){
-                String[] parts = lines.get(i).split(";");
+        boolean found = false;
+        int matIndex, rentIndex;
+        BufferedReader file = null;
+        try{
+            file = new BufferedReader(new FileReader(new File("src/main/resources/sample/rents.txt")));
+            String line = file.readLine();
+            while(line != null){
+                String[] parts = line.split(";");
+                found = false;
 
                 for(Material m: materials){
                     if(m.getCode().equals(parts[1])){
@@ -99,42 +111,90 @@ public class RentController implements Initializable {
                                 if(r.getMember().getId().equals(parts[0])){
                                     rentIndex = rents.indexOf(r);
                                     rents.get(rentIndex).addProduct(materials.get(matIndex));
-                                    rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2]));
+                                    rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2],formatter));
+                                    found = true;
+                                }
+                            }
+                            if(!found){
+                                for (Member mem : memberList) {
+                                    if (mem.getId().equals(parts[0])) {
+                                        rentIndex = rents.size();
+                                        rents.add(new Rent(new Member(mem)));
+                                        rents.get(rentIndex).addProduct(materials.get(matIndex));
+                                        rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2], formatter));
+                                    }
                                 }
                             }
                         }
                         else {
-                            for (Member mem : mems) {
+                            for (Member mem : memberList) {
                                 if (mem.getId().equals(parts[0])) {
-                                    memberIndex = mems.indexOf(mem);
-
                                     rentIndex = rents.size();
-                                    rents.add(new Rent(mems.get(memberIndex)));
+                                    rents.add(new Rent(new Member(mem)));
                                     rents.get(rentIndex).addProduct(materials.get(matIndex));
-                                    rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2]));
+                                    rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2], formatter));
                                 }
                             }
                         }
                     }
                 }
+
+                line = file.readLine();
             }
-        } catch (Exception e) {
-            return new ArrayList<>();
+        } catch (FileNotFoundException e) {
+            System.err.println("Error reading the file: " + e.getMessage());
+        } catch (Exception e){
+            System.err.println("Error: " + e.getMessage());
+        }finally {
+            try{
+                file.close();
+            }catch(Exception e) {}
         }
+
+        Collections.sort(rents, new Comparator<Rent>() {
+            @Override
+            public int compare(Rent o1, Rent o2) {
+                return o1.getMember().getId().compareTo(o2.getMember().getId());
+            }
+        });
         return rents;
+    }
+    public void saveFile(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        PrintWriter pw = null;
+        try{
+            pw = new PrintWriter("src/main/resources/sample/rents.txt");
+            for(Rent t: rentList){
+                for(Material mat: t.getProducts()){
+                    pw.println(t.getMember().getId() + ";" + mat.getCode() + ";" + formatter.format(t.getReturnData()));
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally{
+            if(pw != null){
+                pw.close();
+            }
+        }
     }
     @FXML
     public void addRent(ActionEvent actionEvent){
         //Añadir material a prestar
     }
     @FXML
-    public void removeRent(ActionEvent actionEvent){ //Si me da tiempo intentar que borre solo x productos con el método interno de la clase Rent
+    public void removeRent(ActionEvent actionEvent) throws IOException { //Si me da tiempo intentar que borre solo x productos con el método interno de la clase Rent
         if(!txtId.getText().isEmpty()){
-            rentList.remove(new Rent(new Member(txtId.getText())));
+            for(Rent r: rentList){
+                if(r.getMember().getId().equals(txtId.getText())){
+                    rentList.remove(r);
+                }
+            }
         }
+        saveFile();
+        Navigate.goToView("rent.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
     @FXML
-    public void extendDate(ActionEvent actionEvent){
+    public void extendDate(ActionEvent actionEvent){ //No funciona, comprobar
         LocalDate newDate = dateRent.getValue();
         Rent aux = searchRent();
 
@@ -143,6 +203,7 @@ public class RentController implements Initializable {
                 r.setReturnData(newDate);
             }
         }
+        saveFile();
     }
     @FXML
     public void showRent(ActionEvent actionEvent){

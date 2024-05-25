@@ -24,6 +24,10 @@ public class Inventory {
         inventory.add(m);
         saveInventory();
     }
+    public void removeMaterial(Material m){
+        inventory.remove(m);
+        saveInventory();
+    }
     private List<Material> readFile(){
         List<Material> materials = new ArrayList<>();
         try{

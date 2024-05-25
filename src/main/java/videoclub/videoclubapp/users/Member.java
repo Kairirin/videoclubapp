@@ -25,6 +25,12 @@ public class Member {
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
+    public Member(Member memberCopy){
+        id = memberCopy.getId();
+        name = memberCopy.getName();
+        email = memberCopy.getEmail();
+        phoneNumber = memberCopy.getPhoneNumber();
+    }
 
     /**
      * Constructor for use equals
@@ -88,6 +94,10 @@ public class Member {
      */
     public void setPhoneNumber(int phoneNumber){
         this.phoneNumber = phoneNumber;
+    }
+    @Override
+    public String toString(){
+        return id;
     }
 
     @Override

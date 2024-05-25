@@ -63,9 +63,8 @@ public abstract class Material {
     }
     @Override
     public String toString(){
-        return code+';'+title+';'+year+';'+genre+';'+extra;
+        return code+ " - " + title+ "(" + year +")";
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -55,9 +55,12 @@ public class Rent {
         Rent rent = (Rent) o;
         return Objects.equals(member, rent.member);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(member);
+    }
+    @Override
+    public String toString(){
+        return member.toString();
     }
 }
