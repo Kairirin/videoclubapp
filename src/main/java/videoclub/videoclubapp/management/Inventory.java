@@ -9,8 +9,17 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class from which all materials inventory is managed
+ * @author irenevinaderantón
+ * @version 1
+ */
 public class Inventory {
     private List<Material> inventory;
+
+    /**
+     * Constructor of the class, automatically reads the data from a file
+     */
     public Inventory(){
         inventory = readFile();
     }
@@ -20,14 +29,49 @@ public class Inventory {
     public void setInventory(List<Material> inv){
         inventory = inv;
     }
+
+    /**
+     * Method for add a material to the list
+     * @param m The material object to be added
+     */
     public void addMaterial(Material m){
         inventory.add(m);
         saveInventory();
     }
+
+    /**
+     * Method for remove a material from the list
+     * @param m The material object to be removed
+     */
     public void removeMaterial(Material m){
         inventory.remove(m);
         saveInventory();
     }
+
+    /**
+     * Changes the availability of an item once we include it in a rent object
+     * @param m A certain material
+     */
+    public void setAvailability(Material m){
+        int index = inventory.indexOf(m);
+
+        if(inventory.get(index).isAvailable()){
+            inventory.get(index).setAvailable(false);
+        }
+        else {
+            inventory.get(index).setAvailable(true);
+        }
+        saveInventory();
+    }
+
+    /**
+     * Method to modify the attributes of certain material
+     * @param position The position in the list, serves to claim the right material
+     * @param title The new title
+     * @param genre The new genre
+     * @param year The new year
+     * @param extra The new extra information
+     */
     public void modifyMaterial(int position, String title, String genre, int year, String extra){
         inventory.get(position).setTitle(title);
         inventory.get(position).setGenre(genre);
@@ -36,6 +80,11 @@ public class Inventory {
 
         saveInventory();
     }
+
+    /**
+     * Method for the data load
+     * @return a List of Material objects
+     */
     private List<Material> readFile(){
         List<Material> materials = new ArrayList<>();
         try{
@@ -57,6 +106,10 @@ public class Inventory {
         }
         return materials;
     }
+
+    /**
+     * Method to save all the information in the right file
+     */
     private void saveInventory(){
         try(PrintWriter file = new PrintWriter("src/main/resources/sample/materials.txt")){
             inventory.forEach(material -> {

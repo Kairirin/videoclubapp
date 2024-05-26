@@ -1,6 +1,5 @@
 package videoclub.videoclubapp;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableNumberValue;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.*;
 
@@ -23,19 +22,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
- * Class of our program that stores all the information about renting
+ * Controller/class of our program that stores all the information about renting
  * @author irenevinaderantón
- * @version 1.2
+ * @version 2
  */
 public class RentController implements Initializable {
     @FXML
     private Button btnReset;
     @FXML
-    private Label lblId;
-    @FXML
     private TextField txtId;
-    @FXML
-    private Label lblProducts;
     @FXML
     private Button btnApply;
     @FXML
@@ -71,7 +66,7 @@ public class RentController implements Initializable {
         rents.setItems(rentList);
 
         rents.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener<Rent>() {
+                new ChangeListener<>() {
                     @Override
                     public void changed(ObservableValue observableValue, Rent oldValue, Rent newValue) {
                         if (newValue != null) {
@@ -84,11 +79,16 @@ public class RentController implements Initializable {
                 }
         );
     }
+
+    /**
+     * Method that reads all the rents from a text field and transforms the data into the correct object
+     * @return a List with all the current renting
+     */
     private List<Rent> readRents(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         List<Rent> rents = new ArrayList<>();
-        boolean found = false;
-        int matIndex, rentIndex;
+        boolean found;
+        int rentIndex;
         BufferedReader file = null;
         try{
             file = new BufferedReader(new FileReader(new File("src/main/resources/sample/rents.txt")));
@@ -101,12 +101,13 @@ public class RentController implements Initializable {
                 Member mem;
 
                 if(mat != null){
-                    if(rents.size() > 0){
+                    if(!rents.isEmpty()){
                         for(Rent r: rents){
                             if(r.getMember().getId().equals(parts[0])){
                                 rentIndex = rents.indexOf(r);
                                 rents.get(rentIndex).addProduct(mat);
                                 rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2],formatter));
+                                getControllerInv().getMaterials().setAvailability(mat);
                                 found = true;
                             }
                         }
@@ -117,6 +118,7 @@ public class RentController implements Initializable {
                                 rents.add(new Rent(mem));
                                 rents.get(rentIndex).addProduct(mat);
                                 rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2], formatter));
+                                getControllerInv().getMaterials().setAvailability(mat);
                             }
                         }
                     }
@@ -127,6 +129,7 @@ public class RentController implements Initializable {
                             rents.add(new Rent(mem));
                             rents.get(rentIndex).addProduct(mat);
                             rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2], formatter));
+                            getControllerInv().getMaterials().setAvailability(mat);
                         }
                     }
                 }
@@ -149,6 +152,12 @@ public class RentController implements Initializable {
         });
         return rents;
     }
+
+    /**
+     * Method to search a certain material from our inventory by its code
+     * @param code Code that must match
+     * @return a Material with that code
+     */
     private Material searchMaterialInventory(String code){
         List<Material> materials = getControllerInv().getMaterials().getInventory();
 
@@ -156,6 +165,12 @@ public class RentController implements Initializable {
                 .filter(mat -> mat.getCode().trim().equals(code.trim()))
                 .findFirst().orElse(null);
     }
+
+    /**
+     * Method to search a certain member from our database by its id
+     * @param id Id that must match
+     * @return A Member with that Id
+     */
     private Member searchMember(String id){
         return memberList.stream()
                 .filter(member -> member.getId().trim().equals(id.trim()))
@@ -184,6 +199,13 @@ public class RentController implements Initializable {
         Navigate.modalDialog("addRent.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
         reset(actionEvent);
     }
+
+    /**
+     * This method permits actualize the renting. That way if a member is part already of a rent object, the new products will be added to that object, and not a new one
+     * @param id Id of a member of the videoclub
+     * @param products List of products that will be rent
+     * @param date A return date
+     */
     public void actualiseRents(String id, List<Material> products, LocalDate date){
         Member mem = searchMember(id);
         Rent aux = new Rent(mem);
@@ -203,8 +225,14 @@ public class RentController implements Initializable {
         rentList.get(index).setReturnData(date);
         saveFile();
     }
+
+    /**
+     * Method that removes a selected Rent object
+     * @param actionEvent Activated when Remove button is pressed
+     * @throws IOException
+     */
     @FXML
-    public void removeRent(ActionEvent actionEvent) throws IOException { //Si me da tiempo intentar que borre solo x productos con el método interno de la clase Rent
+    public void removeRent(ActionEvent actionEvent) throws IOException {
         if(!txtId.getText().isEmpty()){
             Rent r = searchRent();
             rentList.remove(r);
@@ -212,6 +240,11 @@ public class RentController implements Initializable {
         saveFile();
         Navigate.goToView("rent.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
+
+    /**
+     * Method that permits change the return data
+     * @param actionEvent Activated when the Modify button is pressed.
+     */
     @FXML
     public void extendDate(ActionEvent actionEvent){
         LocalDate newDate = dateRent.getValue();
@@ -224,6 +257,11 @@ public class RentController implements Initializable {
         }
         saveFile();
     }
+
+    /**
+     * Method that shows the information of a certain rent object
+     * @param actionEvent
+     */
     @FXML
     public void showRent(ActionEvent actionEvent){
         Rent search = searchRent();
@@ -235,6 +273,11 @@ public class RentController implements Initializable {
             listProds.setItems(listOfProducts);
         }
     }
+
+    /**
+     * Method that allows the search of a certain rent by the member information
+     * @return a Rent object
+     */
     private Rent searchRent(){
         List<Rent> auxiliarList = rentList;
         Rent search = null;
@@ -274,7 +317,7 @@ public class RentController implements Initializable {
     }
     @FXML
     public void exitProgram(ActionEvent actionEvent) throws IOException {
-        System.exit(0);
+        Navigate.exitWarning();
     }
     @FXML
     public void reset(ActionEvent actionEvent) throws IOException {

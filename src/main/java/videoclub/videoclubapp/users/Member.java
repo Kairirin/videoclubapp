@@ -100,6 +100,9 @@ public class Member {
         return id;
     }
 
+    /**
+     * Two objects of this class are the same depending on their ids.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

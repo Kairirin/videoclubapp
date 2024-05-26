@@ -6,6 +6,11 @@ import videoclub.videoclubapp.users.Member;
 import java.time.LocalDate;
 import java.util.*;
 
+/**
+ * Class for the renting process
+ * @author irenevinaderantón
+ * @version 1
+ */
 public class Rent {
     private Member member;
     private List<Material> products;
@@ -34,14 +39,27 @@ public class Rent {
         member = m;
     }
 
+    /**
+     * Method to add a product to the list
+     * @param prod The product to be added
+     */
     public void addProduct(Material prod){
         products.add(prod);
     }
+
+    /**
+     * Method to remove a product from the list
+     * @param prod The product to be removed
+     */
     public void removeProduct(Material prod){
         if(products.contains(prod)){
             products.remove(prod);
         }
     }
+
+    /**
+     * Two rent objects will be the same if the Member is the same.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

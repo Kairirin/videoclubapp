@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="mainBox"
-           dividerPositions="0.1507537688442211" maxHeight="600" maxWidth="900" minHeight="600" minWidth="900" orientation="VERTICAL" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="videoclub.videoclubapp.MainController">
+<SplitPane fx:id="mainBox" dividerPositions="0.1507537688442211" maxHeight="600" maxWidth="900" minHeight="600" minWidth="900" orientation="VERTICAL" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="videoclub.videoclubapp.MainController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="65.0" prefWidth="598.0">
          <children>

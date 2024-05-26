@@ -25,29 +25,19 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
- * Class of our program that stores all the materials that integrated the videoclub
+ * Controller of Inventory, associated to the Inventory class, that stores all the materials that integrated the videoclub. Associated to inventory.fxml
  * @author irenevinaderantón
- * @version 1.1
+ * @version 2
  */
 public class InventoryController implements Initializable {
     @FXML
-    private Label lblCodigo;
-    @FXML
     private TextField txtTitulo;
-    @FXML
-    private Label lblTitulo;
     @FXML
     private TextField txtCodigo;
     @FXML
-    private Label lblAnyo;
-    @FXML
     private TextField txtOtros;
     @FXML
-    private Label lblGenero;
-    @FXML
     private TextField txtGenero;
-    @FXML
-    private Label lblOtros;
     @FXML
     private TextField txtAnyo;
     @FXML
@@ -59,10 +49,6 @@ public class InventoryController implements Initializable {
     @FXML
     private Button btnRemove;
     @FXML
-    private Menu btnFilter;
-    @FXML
-    private MenuItem btnDVD;
-    @FXML
     private RadioButton filterBR;
     @FXML
     private RadioButton filterDVD;
@@ -72,16 +58,6 @@ public class InventoryController implements Initializable {
     private RadioButton filterPS;
     @FXML
     private RadioButton filterNIN;
-    @FXML
-    private MenuItem btnBR;
-    @FXML
-    private MenuItem btnVHS;
-    @FXML
-    private MenuItem btnPS;
-    @FXML
-    private MenuItem btnNIN;
-    @FXML
-    private Button btnSearch;
     @FXML
     private MenuItem btnMain;
     @FXML
@@ -106,6 +82,12 @@ public class InventoryController implements Initializable {
     private Button btnReset;
     private static ObservableList<Material> inventory;
     private Inventory materials;
+
+    /**
+     * The initialize method sets all the data in the tableviews
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         materials = new Inventory();
@@ -122,9 +104,13 @@ public class InventoryController implements Initializable {
     public Inventory getMaterials(){
         return materials;
     }
+
+    /**
+     * This method put all the data about a certain material in the fields of below. This will serve to modify that information.
+     */
     public void selectItem(){
         tableInv.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener<Material>() {
+                new ChangeListener<>() {
                     @Override
                     public void changed(ObservableValue<? extends Material> observableValue, Material material, Material newMaterial) {
                         if (newMaterial != null) {
@@ -141,11 +127,22 @@ public class InventoryController implements Initializable {
                 }
         );
     }
+
+    /**
+     * This method permits change to the Add new material view
+     * @param actionEvent Activates once the Add new button is pressed.
+     * @throws IOException
+     */
     @FXML
     private void addMaterial(ActionEvent actionEvent) throws IOException {
         Navigate.modalDialog("addMaterial.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
         reset(actionEvent);
     }
+
+    /**
+     * This method shows a new List with only the materials that matches the fragment of text typed in the search textfield
+     * @param actionEvent Activates when the Search button is pressed
+     */
     @FXML
     public void searchMaterial(ActionEvent actionEvent){
         List<Material> auxiliarList = materials.getInventory();
@@ -162,6 +159,11 @@ public class InventoryController implements Initializable {
         ObservableList<Material> searched = FXCollections.observableArrayList(search);
         tableInv.setItems(searched);
     }
+
+    /**
+     * This method serves to filter out materials depending on their type (subclasses of material (DVD, Nintendo...)
+     * @param actionEvent The method activates in according to the radio button selected.
+     */
     @FXML
     public void filterMaterial(ActionEvent actionEvent){
         List<Material> auxiliarList = materials.getInventory();
@@ -221,11 +223,23 @@ public class InventoryController implements Initializable {
         ObservableList<Material> filters = FXCollections.observableArrayList(filtered);
         tableInv.setItems(filters);
     }
+
+    /**
+     * Method which search a certain material according to its code
+     * @param code Code that has to match
+     * @return A Material with that code
+     */
     private Material searchMaterialInventory(String code){
         return inventory.stream()
                 .filter(mat -> mat.getCode().trim().equals(code.trim()))
                 .findFirst().orElse(null);
     }
+
+    /**
+     * This method takes all the new information of a material and change it in the Inventory class
+     * @param actionEvent Activates when the Modify button is pressed
+     * @throws IOException
+     */
     @FXML
     public void modifyMaterial(ActionEvent actionEvent) throws IOException {
         Material mat = searchMaterialInventory(txtCodigo.getText());
@@ -233,6 +247,11 @@ public class InventoryController implements Initializable {
         materials.modifyMaterial(index, txtTitulo.getText(), txtGenero.getText(), Integer.parseInt(txtAnyo.getText()), txtOtros.getText());
         reset(actionEvent);
     }
+    /**
+     * This method removes a material in the Inventory class
+     * @param actionEvent Activates when the Remove button is pressed
+     * @throws IOException
+     */
     @FXML
     public void removeMaterial(ActionEvent actionEvent) throws IOException {
         Material mat = searchMaterialInventory(txtCodigo.getText());
@@ -277,6 +296,6 @@ public class InventoryController implements Initializable {
     }
     @FXML
     public void exitProgram(ActionEvent actionEvent) throws IOException {
-        System.exit(0);
+        Navigate.exitWarning();
     }
 }

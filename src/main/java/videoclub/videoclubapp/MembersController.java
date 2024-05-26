@@ -24,25 +24,17 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 /**
- * Class of our program that stores all the members
+ * Controller of our program that stores and manages all the members. Associated to members.fxml
  * @author irenevinaderantón
  * @version 1.5
  */
 public class MembersController implements Initializable {
     @FXML
-    private Label lblId;
-    @FXML
     private TextField txtId;
-    @FXML
-    private Label lblName;
     @FXML
     private TextField txtName;
     @FXML
-    private Label lblEmail;
-    @FXML
     private TextField txtEmail;
-    @FXML
-    private Label lblPhone;
     @FXML
     private TextField txtPhone;
     @FXML
@@ -86,7 +78,7 @@ public class MembersController implements Initializable {
         tableMem.setItems(listOfMembers);
 
         tableMem.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener<Member>() {
+                new ChangeListener<>() {
                     @Override
                     public void changed(ObservableValue<? extends Member> observableValue, Member member, Member newMember) {
                         if (newMember != null) {
@@ -117,7 +109,6 @@ public class MembersController implements Initializable {
      * Method that read the text file where is all the data about members
      */
     private List<Member> readFile(){
-        List<Member> members = new ArrayList<>();
         try{
             List<String> lines = Files.readAllLines(Paths.get("src/main/resources/sample/members.txt"));
             return lines.stream()
@@ -233,7 +224,7 @@ public class MembersController implements Initializable {
     }
     @FXML
     public void exitProgram(ActionEvent actionEvent) throws IOException {
-        System.exit(0);
+        Navigate.exitWarning();
     }
     public List<Member> getMemberList(){
         return listOfMembers;

@@ -15,8 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import videoclub.videoclubapp.users.Admin;
-import videoclub.videoclubapp.users.User;
-import videoclub.videoclubapp.users.Worker;
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,10 +37,12 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(getLoginInfo().getCurrentUser() instanceof Admin)
             btnAdmin.setVisible(true);
-
-        //lblWelcome.setText("Welcome " + getLoginInfo().getCurrentUser().getName() + "!");
-
     }
+
+    /**
+     * Method to get the current user info from the LoginController
+     * @return instance of LoginController
+     */
     private LoginController getLoginInfo(){
         FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("login.fxml"));
         try{
@@ -71,6 +71,6 @@ public class MainController implements Initializable {
     }
     @FXML
     public void exitProgram(ActionEvent actionEvent) throws IOException {
-        System.exit(0);
+        Navigate.exitWarning();
     }
 }

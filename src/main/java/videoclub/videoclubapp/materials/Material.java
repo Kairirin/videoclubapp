@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Abstract class to define stored materials information
  * @author irenevinaderantón
- * @version 1.1
+ * @version 1.5
  */
 public abstract class Material {
     protected String code;
@@ -63,10 +63,20 @@ public abstract class Material {
     public void setExtra(String extra){
         this.extra = extra;
     }
+    public boolean isAvailable(){
+        return available;
+    }
+    public void setAvailable(boolean available){
+        this.available = available;
+    }
     @Override
     public String toString(){
         return code+ " - " + title+ "(" + year +")";
     }
+
+    /**
+     * Two materials are the same depending on their codes
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

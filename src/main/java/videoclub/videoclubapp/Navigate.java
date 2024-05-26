@@ -1,6 +1,5 @@
 package videoclub.videoclubapp;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,23 +8,36 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import videoclub.videoclubapp.management.Inventory;
-import videoclub.videoclubapp.materials.Material;
 
 import java.io.IOException;
+import java.util.Optional;
+
 /**
  * Class that change between views
  * @author irenevinaderantón
- * @version 1
+ * @version 2
  */
 public class Navigate {
+    /**
+     * Method to change between normal views
+     * @param path path to the new fxml file
+     * @param newStage
+     * @throws IOException
+     */
     public static void goToView(String path, Stage newStage) throws IOException {
         Parent root = FXMLLoader.load(
-                VideoclubApplication.class.getResource(path)); //Need to pass a String with de username, the view will be different if it is a Admin or a Worker
+                VideoclubApplication.class.getResource(path));
         Scene view = new Scene(root);
         newStage.setScene(view);
         newStage.show();
     }
+
+    /**
+     * Method to change to a modal dialog view
+     * @param path Path to the new fxml file
+     * @param newStage
+     * @throws IOException
+     */
     public static void modalDialog(String path, Stage newStage) throws IOException {
         Parent view = FXMLLoader.load(VideoclubApplication.class.getResource(path));
         Scene viewScene = new Scene(view);
@@ -38,8 +50,12 @@ public class Navigate {
             closeRequest(secondaryStage);
         });
         secondaryStage.showAndWait();
-        //Navigate.goToView("main.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());//Falta pasar el nombre de usuario como parámetro para las cosas que hacen diferente
     }
+
+    /**
+     * Method that displays the close request alert everytime we attempt to log out
+     * @param stage
+     */
     private static void closeRequest(Stage stage){
         Alert confirm = new Alert(Alert.AlertType.INFORMATION);
         confirm.initStyle(StageStyle.DECORATED);
@@ -51,5 +67,15 @@ public class Navigate {
                 .filter(response -> response == ButtonType.OK)
                 .ifPresent(response -> { stage.close(); });
 
+    }
+    public static void exitWarning(){
+        Alert dialogExit = new Alert(Alert.AlertType.CONFIRMATION);
+        dialogExit.setTitle("Are you leaving us?");
+        dialogExit.setHeaderText("");
+        dialogExit.setContentText("You are exiting the application");
+        Optional<ButtonType> result = dialogExit.showAndWait();
+        if (result.get() == ButtonType.OK){
+            System.exit(0);
+        }
     }
 }

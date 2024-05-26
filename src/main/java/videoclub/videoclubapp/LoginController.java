@@ -1,7 +1,7 @@
 /**
  * Controller associated to login.fxml
  * @author irenevinaderantón
- * @version 1
+ * @version 1.1
  */
 package videoclub.videoclubapp;
 import javafx.event.ActionEvent;
@@ -12,7 +12,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import videoclub.videoclubapp.materials.Material;
 import videoclub.videoclubapp.users.*;
 
 import java.io.IOException;
@@ -27,11 +26,7 @@ public class LoginController implements Initializable {
     @FXML
     private ImageView imgLogo;
     @FXML
-    private Label labelUser;
-    @FXML
     private TextField txtUser;
-    @FXML
-    private Label labelPass;
     @FXML
     private PasswordField txtPass;
     @FXML
@@ -44,6 +39,11 @@ public class LoginController implements Initializable {
         imgLogo.setImage(img);
         users = readUsers();
     }
+
+    /**
+     * This method reads the file with the authorized users
+     * @return a List with usernames and passwords
+     */
     private List<User> readUsers(){
         List<User> users = new ArrayList<>();
         try{
@@ -59,6 +59,12 @@ public class LoginController implements Initializable {
         }
         return users;
     }
+
+    /**
+     * Method that check that the username and password exist in our system
+     * @param actionEvent Activated when pressed de Login button
+     * @throws IOException
+     */
     @FXML
     public void login(ActionEvent actionEvent) throws IOException {
         String name = txtUser.getText();
@@ -84,5 +90,10 @@ public class LoginController implements Initializable {
                 .filter(u -> u.getName().trim().equals(name.trim()))
                 .findFirst().orElse(null);
     }
+
+    /**
+     * Method to pass the information about our current user to the main menu view
+     * @return A User
+     */
     public User getCurrentUser(){ return currentUser; }
 }
