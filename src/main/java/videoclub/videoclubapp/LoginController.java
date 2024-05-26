@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import videoclub.videoclubapp.materials.Material;
 import videoclub.videoclubapp.users.*;
 
 import java.io.IOException;
@@ -48,9 +49,9 @@ public class LoginController implements Initializable {
         try{
             List<String> lines = Files.readAllLines(Paths.get("src/main/resources/sample/users.txt"));
             for(String l: lines){
-                if (l.split(";")[0].equals("a"))
+                if (l.split(";")[0].equals("admin")) {
                     users.add(new Admin(l.split(";")[1],l.split(";")[2]));
-                else
+                } else
                     users.add(new Worker(l.split(";")[1],l.split(";")[2]));
             }
         } catch (IOException e) {
@@ -66,7 +67,7 @@ public class LoginController implements Initializable {
 
         for(User u: users){
             if(u.getName().equals(name) && u.getPassword().equals(passwd)){
-                currentUser = u;
+                currentUser = searchUser(name);
                 found = true;
                 Navigate.goToView("main.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
             }
@@ -78,7 +79,10 @@ public class LoginController implements Initializable {
             dialog.showAndWait();
         }
     }
-    public User getUser(){
-        return currentUser;
+    private User searchUser(String name){
+        return users.stream()
+                .filter(u -> u.getName().trim().equals(name.trim()))
+                .findFirst().orElse(null);
     }
+    public User getCurrentUser(){ return currentUser; }
 }

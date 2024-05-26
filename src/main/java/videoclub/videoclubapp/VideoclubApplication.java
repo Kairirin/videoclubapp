@@ -18,10 +18,7 @@ public class VideoclubApplication extends Application {
                 new FXMLLoader(VideoclubApplication.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("CariClub");
-        //scene.getStylesheets().add(
-                //getClass().getResource("design.css").toExternalForm());
         stage.setScene(scene);
-        //stage.setFullScreen(true);
         stage.show();
     }
     public static void main(String[] args) {

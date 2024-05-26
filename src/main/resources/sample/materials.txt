@@ -163,5 +163,5 @@ VHS37;El paciente inglés;1996;Romance;Anthony Minghella
 VHS38;La vida es bella;1997;Comedia;Roberto Benigni
 VHS39;Salvar al soldado Ryan;1998;Bélico;Steven Spielberg
 VHS40;El show de Truman;1998;Drama;Peter Weir
-DVD47;Prueba 2;2021;Prueba;Prueba
-PS31;PruebaPS;2024;Terror;Irene
+DVD47;prueba;2024;prueba;Irene
+VHS41;Hércules;1997;Adventure;Disney

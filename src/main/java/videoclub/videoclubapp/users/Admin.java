@@ -9,5 +9,5 @@ public class Admin extends User{
     public Admin(String name, String password){
         super(name, password);
     }
-    //Implementar método de crear Worker
+    public Admin(User a){super(a);}
 }

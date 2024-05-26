@@ -13,6 +13,7 @@ public abstract class Material {
     protected int year;
     protected String genre;
     protected String extra;
+    protected boolean available;
     /**
      * Constructor with parameters
      * @param c A String with the code of the material
@@ -27,6 +28,7 @@ public abstract class Material {
         year = y;
         genre = g;
         extra = e;
+        available = true;
     }
     public Material(String code){
         this.code = code;

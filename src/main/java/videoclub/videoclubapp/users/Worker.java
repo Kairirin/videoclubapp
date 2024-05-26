@@ -9,4 +9,5 @@ public class Worker extends User{
     public Worker(String name, String password){
         super(name, password);
     }
+    public Worker(User w){super (w);}
 }

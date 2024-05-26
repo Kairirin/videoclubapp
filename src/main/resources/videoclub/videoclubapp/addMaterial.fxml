@@ -9,38 +9,38 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="videoclub.videoclubapp.AddController">
    <children>
-      <Label fx:id="lblTipo" layoutX="57.0" layoutY="68.0" text="Tipo">
+      <Label fx:id="lblTipo" layoutX="57.0" layoutY="68.0" text="Type">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <Button fx:id="btnVal" layoutX="292.0" layoutY="69.0" mnemonicParsing="false" onAction="#setCategory" text="Validate" />
       <ChoiceBox fx:id="cboxTipos" layoutX="122.0" layoutY="69.0" prefWidth="150.0" />
-      <Label fx:id="lblCodigo" layoutX="49.0" layoutY="135.0" text="Código">
+      <Label fx:id="lblCodigo" layoutX="54.0" layoutY="135.0" text="Code">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <TextField fx:id="txtTitulo" layoutX="123.0" layoutY="197.0" prefHeight="25.0" prefWidth="428.0" />
-      <Label fx:id="lblTitulo" layoutX="52.0" layoutY="196.0" text="Título">
+      <Label fx:id="lblTitulo" layoutX="58.0" layoutY="196.0" text="Title">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <TextField fx:id="txtCodigo" editable="false" layoutX="123.0" layoutY="136.0" />
-      <Label fx:id="lblAnyo" layoutX="58.0" layoutY="249.0" text="Año">
+      <Label fx:id="lblAnyo" layoutX="58.0" layoutY="249.0" text="Year">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <TextField fx:id="txtOtros" layoutX="123.0" layoutY="307.0" prefHeight="25.0" prefWidth="221.0" promptText="Director or Company" />
-      <Label fx:id="lblGenero" layoutX="270.0" layoutY="249.0" text="Género">
+      <Label fx:id="lblGenero" layoutX="270.0" layoutY="249.0" text="Genre">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <TextField fx:id="txtGenero" layoutX="347.0" layoutY="250.0" prefHeight="25.0" prefWidth="202.0" />
-      <Label fx:id="lblOtros" layoutX="52.0" layoutY="306.0" text="Otros">
+      <Label fx:id="lblOtros" layoutX="52.0" layoutY="306.0" text="Other">
          <font>
             <Font size="18.0" />
          </font>

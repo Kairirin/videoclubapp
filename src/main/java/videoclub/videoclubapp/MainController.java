@@ -37,10 +37,11 @@ public class MainController implements Initializable {
     private Button btnAdmin;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        User currentUser = getLoginInfo().getUser();
-            if(currentUser instanceof Worker){
-                btnAdmin.setVisible(false);
-            }
+        if(getLoginInfo().getCurrentUser() instanceof Admin)
+            btnAdmin.setVisible(true);
+
+        //lblWelcome.setText("Welcome " + getLoginInfo().getCurrentUser().getName() + "!");
+
     }
     private LoginController getLoginInfo(){
         FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("login.fxml"));

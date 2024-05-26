@@ -1,11 +1,10 @@
 package videoclub.videoclubapp;
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableNumberValue;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.*;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -181,23 +180,34 @@ public class RentController implements Initializable {
         }
     }
     @FXML
-    public void addRent(ActionEvent actionEvent){
-        //Añadir material a prestar
+    public void addRent(ActionEvent actionEvent) throws IOException {
+        Navigate.modalDialog("addRent.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
+        reset(actionEvent);
+    }
+    public void actualiseRents(String id, List<Material> products, LocalDate date){
+        Member mem = searchMember(id);
+        Rent aux = new Rent(mem);
+        int index;
+
+        if(rentList.contains(aux)){
+            index = rentList.indexOf(aux);
+        }
+        else
+        {
+            rentList.add(aux);
+            index = rentList.indexOf(aux);
+        }
+        for(Material m: products){
+            rentList.get(index).addProduct(m);
+        }
+        rentList.get(index).setReturnData(date);
+        saveFile();
     }
     @FXML
     public void removeRent(ActionEvent actionEvent) throws IOException { //Si me da tiempo intentar que borre solo x productos con el método interno de la clase Rent
         if(!txtId.getText().isEmpty()){
             Rent r = searchRent();
             rentList.remove(r);
-            /*if(!r.getProducts().isEmpty()){
-                listProds.getSelectionModel().selectedItemProperty().addListener((property, oldValue, newValue) ->
-                {
-                    r.getProducts().remove(newValue);
-                });
-            }
-           else {
-               rentList.remove(r);
-            }*/
         }
         saveFile();
         Navigate.goToView("rent.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
@@ -247,6 +257,9 @@ public class RentController implements Initializable {
         }
         return search;
     }
+    public ObservableList<Rent> getRents(){
+        return rentList;
+    }
     @FXML
     public void viewMain(ActionEvent actionEvent) throws IOException {
         Navigate.goToView("main.fxml",(Stage)(btnMain.getParentPopup().getOwnerWindow()).getScene().getWindow());
@@ -267,7 +280,7 @@ public class RentController implements Initializable {
     public void reset(ActionEvent actionEvent) throws IOException {
         Navigate.goToView("rent.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
-    private MembersController getControllerMem(){
+    public MembersController getControllerMem(){
         FXMLLoader loader = new FXMLLoader(MembersController.class.getResource("members.fxml"));
         try{
             Parent root = (Parent)loader.load();
@@ -277,7 +290,7 @@ public class RentController implements Initializable {
         MembersController controller = (MembersController)loader.getController();
         return controller;
     }
-    private InventoryController getControllerInv(){
+    public InventoryController getControllerInv(){
         FXMLLoader loader = new FXMLLoader(InventoryController.class.getResource("inventory.fxml"));
         try{
             Parent root = (Parent)loader.load();

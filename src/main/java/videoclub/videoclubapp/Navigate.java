@@ -41,7 +41,7 @@ public class Navigate {
         //Navigate.goToView("main.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());//Falta pasar el nombre de usuario como parámetro para las cosas que hacen diferente
     }
     private static void closeRequest(Stage stage){
-        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert confirm = new Alert(Alert.AlertType.INFORMATION);
         confirm.initStyle(StageStyle.DECORATED);
         confirm.initModality(Modality.APPLICATION_MODAL);
         confirm.initOwner(stage);

@@ -13,6 +13,7 @@ public class Rent {
     public Rent(Member member) {
         this.member = member;
         products = new ArrayList<>();
+        returnData = LocalDate.now();
     }
     public Member getMember(){
         return member;
@@ -34,9 +35,7 @@ public class Rent {
     }
 
     public void addProduct(Material prod){
-        if(products.size() < 5){
-            products.add(prod);
-        }
+        products.add(prod);
     }
     public void removeProduct(Material prod){
         if(products.contains(prod)){

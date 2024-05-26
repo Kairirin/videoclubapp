@@ -21,6 +21,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -142,7 +143,7 @@ public class InventoryController implements Initializable {
     }
     @FXML
     private void addMaterial(ActionEvent actionEvent) throws IOException {
-        Navigate.modalDialog("add_ModalDialog.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
+        Navigate.modalDialog("addMaterial.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
         reset(actionEvent);
     }
     @FXML
@@ -220,9 +221,10 @@ public class InventoryController implements Initializable {
         ObservableList<Material> filters = FXCollections.observableArrayList(filtered);
         tableInv.setItems(filters);
     }
-    @FXML
-    public void reset(ActionEvent actionEvent) throws IOException {
-        Navigate.goToView("inventory.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
+    private Material searchMaterialInventory(String code){
+        return inventory.stream()
+                .filter(mat -> mat.getCode().trim().equals(code.trim()))
+                .findFirst().orElse(null);
     }
     @FXML
     public void modifyMaterial(ActionEvent actionEvent) throws IOException {
@@ -231,23 +233,35 @@ public class InventoryController implements Initializable {
         materials.modifyMaterial(index, txtTitulo.getText(), txtGenero.getText(), Integer.parseInt(txtAnyo.getText()), txtOtros.getText());
         reset(actionEvent);
     }
-    private Material searchMaterialInventory(String code){
-        return inventory.stream()
-                .filter(mat -> mat.getCode().trim().equals(code.trim()))
-                .findFirst().orElse(null);
-    }
     @FXML
     public void removeMaterial(ActionEvent actionEvent) throws IOException {
         Material mat = searchMaterialInventory(txtCodigo.getText());
         int index = inventory.indexOf(mat);
-        materials.removeMaterial(inventory.get(index));
 
-        Alert dialog = new Alert(Alert.AlertType.CONFIRMATION);
-        dialog.setTitle("Success!");
-        dialog.setHeaderText("Inventory actualized");
-        dialog.showAndWait();
+        Alert dialogRemove = new Alert(Alert.AlertType.CONFIRMATION);
+        dialogRemove.setTitle("You are going to remove");
+        dialogRemove.setHeaderText("");
+        dialogRemove.setContentText("Are you sure you want to remove the item?");
+        Optional<ButtonType> result = dialogRemove.showAndWait();
+        if (result.get() == ButtonType.OK){
+            materials.removeMaterial(inventory.get(index));
+            reset(actionEvent);
 
-        reset(actionEvent);
+            Alert dialog = new Alert(Alert.AlertType.CONFIRMATION);
+            dialog.setTitle("Success!");
+            dialog.setHeaderText("Inventory actualized");
+            dialog.showAndWait();
+        }
+        else {
+            Alert dialog = new Alert(Alert.AlertType.CONFIRMATION);
+            dialog.setTitle("You cancelled");
+            dialog.setHeaderText("Operation cancelled");
+            dialog.showAndWait();
+        }
+    }
+    @FXML
+    public void reset(ActionEvent actionEvent) throws IOException {
+        Navigate.goToView("inventory.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
     @FXML
     public void viewMain(ActionEvent actionEvent) throws IOException {
