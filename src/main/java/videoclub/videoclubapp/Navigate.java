@@ -45,7 +45,7 @@ public class Navigate {
         confirm.initStyle(StageStyle.DECORATED);
         confirm.initModality(Modality.APPLICATION_MODAL);
         confirm.initOwner(stage);
-        confirm.getDialogPane().setContentText("Returning to main page");
+        confirm.getDialogPane().setContentText("Returning to previous page");
         confirm.getDialogPane().setHeaderText(null);
         confirm.showAndWait()
                 .filter(response -> response == ButtonType.OK)

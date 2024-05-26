@@ -14,11 +14,6 @@ public class Rent {
         this.member = member;
         products = new ArrayList<>();
     }
-    /*public Rent(Member member, Material product, LocalDate returnData){
-        this.member = member;
-        this.product = product;
-        this.returnData = returnData;
-    }*/
     public Member getMember(){
         return member;
     }

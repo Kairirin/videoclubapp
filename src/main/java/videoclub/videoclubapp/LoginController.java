@@ -35,7 +35,8 @@ public class LoginController implements Initializable {
     private PasswordField txtPass;
     @FXML
     private Button btnLogin;
-    List<User> users;
+    private List<User> users;
+    private User currentUser;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Image img = new Image("file:src/main/resources/sample/logo.png");
@@ -65,9 +66,9 @@ public class LoginController implements Initializable {
 
         for(User u: users){
             if(u.getName().equals(name) && u.getPassword().equals(passwd)){
+                currentUser = u;
                 found = true;
-                Navigate.goToView("main.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());//Falta pasar el nombre de usuario como parámetro para las cosas que hacen diferente
-                // admin y workers
+                Navigate.goToView("main.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
             }
         }
         if(!found){
@@ -76,5 +77,8 @@ public class LoginController implements Initializable {
             dialog.setHeaderText("Invalid username or password");
             dialog.showAndWait();
         }
+    }
+    public User getUser(){
+        return currentUser;
     }
 }

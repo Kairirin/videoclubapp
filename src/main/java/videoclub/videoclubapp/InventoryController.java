@@ -30,6 +30,26 @@ import java.util.ResourceBundle;
  */
 public class InventoryController implements Initializable {
     @FXML
+    private Label lblCodigo;
+    @FXML
+    private TextField txtTitulo;
+    @FXML
+    private Label lblTitulo;
+    @FXML
+    private TextField txtCodigo;
+    @FXML
+    private Label lblAnyo;
+    @FXML
+    private TextField txtOtros;
+    @FXML
+    private Label lblGenero;
+    @FXML
+    private TextField txtGenero;
+    @FXML
+    private Label lblOtros;
+    @FXML
+    private TextField txtAnyo;
+    @FXML
     private TextField txtSearch;
     @FXML
     private Button btnAdd;
@@ -96,13 +116,34 @@ public class InventoryController implements Initializable {
         colExtra.setCellValueFactory(new PropertyValueFactory<>("extra"));
 
         tableInv.setItems(inventory);
+        selectItem();
     }
     public Inventory getMaterials(){
         return materials;
     }
+    public void selectItem(){
+        tableInv.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<Material>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Material> observableValue, Material material, Material newMaterial) {
+                        if (newMaterial != null) {
+                            txtCodigo.setText(newMaterial.getCode());
+                            txtTitulo.setText(newMaterial.getTitle());
+                            txtAnyo.setText("" + newMaterial.getYear());
+                            txtGenero.setText(newMaterial.getGenre());
+                            txtOtros.setText(newMaterial.getExtra());
+
+                            btnModify.setVisible(true);
+                            btnRemove.setVisible(true);
+                        }
+                    }
+                }
+        );
+    }
     @FXML
     private void addMaterial(ActionEvent actionEvent) throws IOException {
         Navigate.modalDialog("add_ModalDialog.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
+        reset(actionEvent);
     }
     @FXML
     public void searchMaterial(ActionEvent actionEvent){
@@ -184,20 +225,29 @@ public class InventoryController implements Initializable {
         Navigate.goToView("inventory.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
     @FXML
-    public void modifyMaterial(ActionEvent actionEvent){
-        //Implementar método
+    public void modifyMaterial(ActionEvent actionEvent) throws IOException {
+        Material mat = searchMaterialInventory(txtCodigo.getText());
+        int index = inventory.indexOf(mat);
+        materials.modifyMaterial(index, txtTitulo.getText(), txtGenero.getText(), Integer.parseInt(txtAnyo.getText()), txtOtros.getText());
+        reset(actionEvent);
+    }
+    private Material searchMaterialInventory(String code){
+        return inventory.stream()
+                .filter(mat -> mat.getCode().trim().equals(code.trim()))
+                .findFirst().orElse(null);
     }
     @FXML
-    public void removeMaterial(ActionEvent actionEvent){
-        int position = tableInv.getSelectionModel().getSelectedIndex();
-        if (position >= 0) {
-            materials.removeMaterial(inventory.get(position));
+    public void removeMaterial(ActionEvent actionEvent) throws IOException {
+        Material mat = searchMaterialInventory(txtCodigo.getText());
+        int index = inventory.indexOf(mat);
+        materials.removeMaterial(inventory.get(index));
 
-            Alert dialog = new Alert(Alert.AlertType.CONFIRMATION); //Comprobar bien
-            dialog.setTitle("Success!");
-            dialog.setHeaderText("Inventory actualized");
-            dialog.showAndWait();
-        }
+        Alert dialog = new Alert(Alert.AlertType.CONFIRMATION);
+        dialog.setTitle("Success!");
+        dialog.setHeaderText("Inventory actualized");
+        dialog.showAndWait();
+
+        reset(actionEvent);
     }
     @FXML
     public void viewMain(ActionEvent actionEvent) throws IOException {
@@ -215,6 +265,4 @@ public class InventoryController implements Initializable {
     public void exitProgram(ActionEvent actionEvent) throws IOException {
         System.exit(0);
     }
-
-
 }

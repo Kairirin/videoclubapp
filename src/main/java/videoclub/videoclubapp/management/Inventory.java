@@ -28,6 +28,14 @@ public class Inventory {
         inventory.remove(m);
         saveInventory();
     }
+    public void modifyMaterial(int position, String title, String genre, int year, String extra){
+        inventory.get(position).setTitle(title);
+        inventory.get(position).setGenre(genre);
+        inventory.get(position).setYear(year);
+        inventory.get(position).setExtra(extra);
+
+        saveInventory();
+    }
     private List<Material> readFile(){
         List<Material> materials = new ArrayList<>();
         try{
@@ -50,7 +58,7 @@ public class Inventory {
         return materials;
     }
     private void saveInventory(){
-        try(PrintWriter file = new PrintWriter("materials.txt")){
+        try(PrintWriter file = new PrintWriter("src/main/resources/sample/materials.txt")){
             inventory.forEach(material -> {
                         file.println(material.getCode() + ';' +
                                 material.getTitle() + ';' +

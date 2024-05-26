@@ -4,7 +4,6 @@ BR3;La La Land;2016;Musical;Damien Chazelle
 BR4;Rogue One: Una historia de Star Wars;2016;Ciencia ficción;Gareth Edwards
 BR5;Coco;2017;Animación;Lee Unkrich
 BR6;Dunkerque;2017;Bélico;Christopher Nolan
-BR7;Black Panther;2018;Acción;Ryan Coogler
 BR8;Vengadores: Infinity War;2018;Acción;Anthony Russo, Joe Russo
 BR9;Bohemian Rhapsody;2018;Biografía;Bryan Singer
 BR10;Joker;2019;Crimen;Todd Phillips
@@ -64,7 +63,6 @@ DVD43;La La Land;2016;Musical;Damien Chazelle
 DVD44;Rogue One: Una historia de Star Wars;2016;Ciencia ficción;Gareth Edwards
 DVD45;Coco;2017;Animación;Lee Unkrich, Adrian Molina
 DVD46;Dunkerque;2017;Bélico;Christopher Nolan
-DVD47;Black Panther;2018;Acción;Ryan Coogler
 NIN1;The Legend of Zelda: Breath of the Wild;2017;Acción-aventura;Nintendo EPD
 NIN2;Super Mario Odyssey;2017;Plataforma;Nintendo EPD
 NIN3;Animal Crossing: New Horizons;2020;Simulación de vida;Nintendo EPD
@@ -165,3 +163,5 @@ VHS37;El paciente inglés;1996;Romance;Anthony Minghella
 VHS38;La vida es bella;1997;Comedia;Roberto Benigni
 VHS39;Salvar al soldado Ryan;1998;Bélico;Steven Spielberg
 VHS40;El show de Truman;1998;Drama;Peter Weir
+DVD47;Prueba 2;2021;Prueba;Prueba
+PS31;PruebaPS;2024;Terror;Irene

@@ -14,6 +14,7 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Button fx:id="btnVal" layoutX="292.0" layoutY="69.0" mnemonicParsing="false" onAction="#setCategory" text="Validate" />
       <ChoiceBox fx:id="cboxTipos" layoutX="122.0" layoutY="69.0" prefWidth="150.0" />
       <Label fx:id="lblCodigo" layoutX="49.0" layoutY="135.0" text="Código">
          <font>

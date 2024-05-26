@@ -25,6 +25,8 @@ public class AddController implements Initializable {
     @FXML
     public Button btnAdd;
     @FXML
+    public Button btnVal;
+    @FXML
     private Label lblTipo;
     @FXML
     private ChoiceBox<String> cboxTipos;
@@ -51,6 +53,7 @@ public class AddController implements Initializable {
     private List<Material> materials;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //materials = getController().getMaterials().getInventory();
         materials = getController().getMaterials().getInventory();
         cboxTipos.setItems(FXCollections.observableArrayList(
                 "BluRay", "DVD", "VHS", "PlayStation", "Nintendo")
@@ -66,7 +69,8 @@ public class AddController implements Initializable {
         InventoryController controller = (InventoryController)loader.getController();
         return controller;
     }
-    public void setCategory(){
+    @FXML
+    public void setCategory(ActionEvent actionEvent){
         List<Material> aux = new ArrayList<>();
         int nextNumber;
 
@@ -121,7 +125,6 @@ public class AddController implements Initializable {
     @FXML
     public void addMaterial(ActionEvent actionEvent) {
         Material mat = null;
-        setCategory();
 
         if (!txtTitulo.getText().isEmpty() && !txtAnyo.getText().isEmpty() && !txtGenero.getText().isEmpty() && !txtOtros.getText().isEmpty()) {
             switch (cboxTipos.getSelectionModel().getSelectedIndex()){
@@ -145,9 +148,8 @@ public class AddController implements Initializable {
 
             Alert dialog = new Alert(Alert.AlertType.CONFIRMATION);
             dialog.setTitle("Success!");
-            dialog.setHeaderText("Inventory actualized");
+            dialog.setHeaderText("Inventory actualized. You can close this window");
             dialog.showAndWait();
-
         }
         else{
             Alert dialog = new Alert(Alert.AlertType.ERROR);

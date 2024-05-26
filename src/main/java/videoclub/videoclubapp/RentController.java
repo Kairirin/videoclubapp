@@ -14,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import videoclub.videoclubapp.management.Rent;
 import videoclub.videoclubapp.materials.*;
@@ -36,8 +35,6 @@ public class RentController implements Initializable {
     private Label lblId;
     @FXML
     private TextField txtId;
-    @FXML
-    private TextField txtData;
     @FXML
     private Label lblProducts;
     @FXML
@@ -81,7 +78,7 @@ public class RentController implements Initializable {
                         if (newValue != null) {
                             listOfProducts = FXCollections.observableList(newValue.getProducts());
                             txtId.setText(newValue.getMember().getId());
-                            txtData.setText(formatter.format(newValue.getReturnData()));
+                            dateRent.setValue(newValue.getReturnData());
                             listProds.setItems(listOfProducts);
                         }
                     }
@@ -91,7 +88,6 @@ public class RentController implements Initializable {
     private List<Rent> readRents(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         List<Rent> rents = new ArrayList<>();
-        List<Material> materials = getControllerInv().getMaterials().getInventory();
         boolean found = false;
         int matIndex, rentIndex;
         BufferedReader file = null;
@@ -102,43 +98,39 @@ public class RentController implements Initializable {
                 String[] parts = line.split(";");
                 found = false;
 
-                for(Material m: materials){
-                    if(m.getCode().equals(parts[1])){
-                        matIndex = materials.indexOf(m);
+                Material mat = searchMaterialInventory(parts[1]);
+                Member mem;
 
-                        if(rents.size() > 0){
-                            for(Rent r: rents){
-                                if(r.getMember().getId().equals(parts[0])){
-                                    rentIndex = rents.indexOf(r);
-                                    rents.get(rentIndex).addProduct(materials.get(matIndex));
-                                    rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2],formatter));
-                                    found = true;
-                                }
-                            }
-                            if(!found){
-                                for (Member mem : memberList) {
-                                    if (mem.getId().equals(parts[0])) {
-                                        rentIndex = rents.size();
-                                        rents.add(new Rent(new Member(mem)));
-                                        rents.get(rentIndex).addProduct(materials.get(matIndex));
-                                        rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2], formatter));
-                                    }
-                                }
+                if(mat != null){
+                    if(rents.size() > 0){
+                        for(Rent r: rents){
+                            if(r.getMember().getId().equals(parts[0])){
+                                rentIndex = rents.indexOf(r);
+                                rents.get(rentIndex).addProduct(mat);
+                                rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2],formatter));
+                                found = true;
                             }
                         }
-                        else {
-                            for (Member mem : memberList) {
-                                if (mem.getId().equals(parts[0])) {
-                                    rentIndex = rents.size();
-                                    rents.add(new Rent(new Member(mem)));
-                                    rents.get(rentIndex).addProduct(materials.get(matIndex));
-                                    rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2], formatter));
-                                }
+                        if(!found){
+                            mem = searchMember(parts[0]);
+                            if(mem != null){
+                                rentIndex = rents.size();
+                                rents.add(new Rent(mem));
+                                rents.get(rentIndex).addProduct(mat);
+                                rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2], formatter));
                             }
                         }
                     }
+                    else {
+                        mem = searchMember(parts[0]);
+                        if(mem != null){
+                            rentIndex = rents.size();
+                            rents.add(new Rent(mem));
+                            rents.get(rentIndex).addProduct(mat);
+                            rents.get(rentIndex).setReturnData(LocalDate.parse(parts[2], formatter));
+                        }
+                    }
                 }
-
                 line = file.readLine();
             }
         } catch (FileNotFoundException e) {
@@ -150,7 +142,6 @@ public class RentController implements Initializable {
                 file.close();
             }catch(Exception e) {}
         }
-
         Collections.sort(rents, new Comparator<Rent>() {
             @Override
             public int compare(Rent o1, Rent o2) {
@@ -158,6 +149,18 @@ public class RentController implements Initializable {
             }
         });
         return rents;
+    }
+    private Material searchMaterialInventory(String code){
+        List<Material> materials = getControllerInv().getMaterials().getInventory();
+
+        return materials.stream()
+                .filter(mat -> mat.getCode().trim().equals(code.trim()))
+                .findFirst().orElse(null);
+    }
+    private Member searchMember(String id){
+        return memberList.stream()
+                .filter(member -> member.getId().trim().equals(id.trim()))
+                .findFirst().orElse(null);
     }
     public void saveFile(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -184,17 +187,23 @@ public class RentController implements Initializable {
     @FXML
     public void removeRent(ActionEvent actionEvent) throws IOException { //Si me da tiempo intentar que borre solo x productos con el método interno de la clase Rent
         if(!txtId.getText().isEmpty()){
-            for(Rent r: rentList){
-                if(r.getMember().getId().equals(txtId.getText())){
-                    rentList.remove(r);
-                }
+            Rent r = searchRent();
+            rentList.remove(r);
+            /*if(!r.getProducts().isEmpty()){
+                listProds.getSelectionModel().selectedItemProperty().addListener((property, oldValue, newValue) ->
+                {
+                    r.getProducts().remove(newValue);
+                });
             }
+           else {
+               rentList.remove(r);
+            }*/
         }
         saveFile();
         Navigate.goToView("rent.fxml",(Stage)((Node) actionEvent.getSource()).getScene().getWindow());
     }
     @FXML
-    public void extendDate(ActionEvent actionEvent){ //No funciona, comprobar
+    public void extendDate(ActionEvent actionEvent){
         LocalDate newDate = dateRent.getValue();
         Rent aux = searchRent();
 
@@ -223,7 +232,15 @@ public class RentController implements Initializable {
         if(!txtSearch.getText().isEmpty()){
             String txt = txtSearch.getText();
             for(Rent r: rentList){
-                if(r.getMember().getId().contains(txt) || r.getMember().getName().contains(txt) || r.getMember().getEmail().contains(txt) || r.getMember().getPhoneNumber() == (Integer.parseInt(txt))){
+                if(r.getMember().getId().contains(txt) || r.getMember().getName().contains(txt) || r.getMember().getEmail().contains(txt)){
+                    search = r;
+                }
+            }
+        }
+        else if (!txtId.getText().isEmpty()){
+            String txt = txtId.getText();
+            for(Rent r: rentList){
+                if(r.getMember().getId().equals(txt)){
                     search = r;
                 }
             }
